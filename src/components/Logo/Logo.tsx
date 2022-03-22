@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const Logo = () => {
+interface Props {
+    textClass: string;
+    className: string;
+}
+
+const Logo:  React.FC<Props> = ({ textClass, className }) => {
     return (
-        <div className='h-32 w-32 bg-white shadow-around rounded-full flex items-center justify-center'>
-            <span className='text-8xl'>P</span>
+        <div className={`bg-white shadow-around rounded-full flex items-center justify-center ${className}`}>
+            <span className={textClass}>P</span>
         </div>
     )
 }
