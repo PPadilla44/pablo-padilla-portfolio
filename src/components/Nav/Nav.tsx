@@ -2,18 +2,18 @@ import React from 'react'
 import Button from '../Button'
 import Logo from '../Logo'
 
-const Nav = () => {
+const Nav = ({ transparent } : { transparent: boolean }) => {
     return (
-        <nav className='bg-30-light w-screen h-20 fixed shadow-xl flex left-0 top-0 items-center justify-between px-5'>
+        <nav className={`${!transparent && "bg-30-light"} w-screen h-20 fixed flex left-0 top-0 items-center justify-between px-5 z-50`}>
 
             <div className='flex items-center'>
 
                 <Logo className='w-14 h-14' textClass="text-4xl" />
-                <div className='flex items-center ml-14 gap-12'>
-                    <p>About Me</p>
-                    <p>Skills</p>
-                    <p>Projects</p>
-                    <p>Education</p>
+                <div className='flex items-center ml-14 gap-12 text-60-light'>
+                    <a href='#'>About Me</a>
+                    <a href='#'>Skills</a>
+                    <a href='#'>Projects</a>
+                    <a href='#'>Education</a>
                 </div>
             </div>
 
