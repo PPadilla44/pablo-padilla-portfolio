@@ -1,14 +1,13 @@
 import React from 'react';
 
 interface Props {
-    textClass: string;
     className: string;
 }
 
-const Logo:  React.FC<Props> = ({ textClass, className }) => {
+const Logo: React.FC<Props> = ({ className }) => {
     return (
         <div className={`bg-white shadow-around rounded-full flex items-center justify-center ${className}`}>
-            <span className={textClass}>P</span>
+            <span className='pt-3 pl-1'>P</span>
         </div>
     )
 }
