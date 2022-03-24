@@ -1,15 +1,15 @@
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
+import NavMobile from "./components/NavMobile";
 import Section from "./components/Section";
 
 
 function App() {
 
-
-
   return (
     <>
       <Nav />
+      <NavMobile />
 
       <Hero />
 
