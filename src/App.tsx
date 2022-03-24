@@ -1,48 +1,39 @@
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
+import Section from "./components/Section";
 
 
 function App() {
+
+
+
   return (
-    <div className="w-full h-full bg-60-light">
+    <>
+      <Nav />
 
       <Hero />
 
+      <main className="bg-60-light gap-9 flex flex-col">
 
-
-      <main className="h-full w-full -mt-20">
-        <Nav/>
-
-        <section className="flex items-center justify-center mb-20">
-          <div className="max-w-7xl w-full ">
-            <div className="shadow-around w-80 h-80 ">
-
-              <h1 className="text-8xl font-bold">MORE TEXT HERE</h1>
-            </div>
-          </div>
-
-        </section>
-        <section className="flex items-center justify-center mb-20">
-          <div className="max-w-7xl w-full ">
-            <div className="shadow-around w-80 h-80 ">
-
-              <h1 className="text-8xl font-bold">MORE TEXT HERE</h1>
-            </div>
-          </div>
-
-        </section>
-        <section className="flex items-center justify-center">
-          <div className="max-w-7xl w-full ">
-            <div className="shadow-around w-80 h-80 ">
-
-              <h1 className="text-8xl font-bold">MORE TEXT HERE</h1>
-            </div>
-          </div>
-
-        </section>
+        <Section>
+          <h1>Elemenmt</h1>
+        </Section>
+        <Section>
+          <h1>Elemenmt</h1>
+        </Section>
+        <Section>
+          <h1>Elemenmt</h1>
+        </Section>
+        <Section>
+          <h1>Elemenmt</h1>
+        </Section>
+        <Section>
+          <h1>Elemenmt</h1>
+        </Section>
+        
       </main>
 
-    </div>
+    </>
   );
 }
 
