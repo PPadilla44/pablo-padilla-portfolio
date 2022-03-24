@@ -10,8 +10,8 @@ const Hero = () => {
                 <div className="md:max-w-2xl w-full text-30-light flex flex-col gap-5 rounded-2xl bg-darkish backdrop-blur-md shadow-around p-5 items-center md:items-start">
 
                     <div className="md:gap-1 flex flex-col items-center md:items-start">
-                        <h1 className="text-6xl md:text-8xl font-bold" >Pablo Padilla</h1>
-                        <h3 className="text-3xl font-semibold">Full-Stack Engineer</h3>
+                        <h1 className="text-5xl md:text-8xl font-bold" >Pablo Padilla</h1>
+                        <h3 className="text-2xl font-semibold">Full-Stack Engineer</h3>
                     </div>
 
                     <div className="flex gap-5">
@@ -20,7 +20,7 @@ const Hero = () => {
                         <Button className='bg-10-light text-xl text-30-light' text='Contact Me' />
                     </div>
 
-                    <p className="text-2xl md:text-3xl text-center md:text-left leading-6">
+                    <p className="text-xl md:text-3xl text-center md:text-left leading-6">
                         I am a committed and enthusiastic full-stack engineer proficient in various programming languages.
                         I am experienced in all levels of web application development, including deployment and maintenance on cloud computing platforms.
                     </p>
