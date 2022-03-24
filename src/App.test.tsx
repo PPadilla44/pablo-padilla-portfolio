@@ -1,8 +1,17 @@
-import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { shallow, ShallowWrapper } from 'enzyme';
 
-test('renders learn react link', () => {
-  render(<App />);
+
+describe('<App />', () => {
+
+  let wrapper: ShallowWrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  })
+
+  it('should render correctly', () => {
+    wrapper.render();
+  });
 
 });
