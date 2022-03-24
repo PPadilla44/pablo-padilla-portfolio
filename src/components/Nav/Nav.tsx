@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import Button from '../Button'
 import Logo from '../Logo'
+import MenuButton from '../MenuButton';
+import NavMenu from '../NavMenu';
 
 const Nav = () => {
 
     const [color, setColor] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollHandler);
@@ -21,7 +24,7 @@ const Nav = () => {
 
             <div className='flex items-center'>
 
-                <Logo className='w-14 h-14 text-6xl font-bold' />
+                <Logo className='w-14 h-14 text-6xl font-bold tx' />
 
                 <div className={` ${color ? "text-black" : "text-60-light"} hidden md:flex items-center ml-14 gap-12 font-light text-xl`}>
                     <a href='/'>About Me</a>
@@ -34,12 +37,9 @@ const Nav = () => {
 
             <Button className={` ${color ? "bg-10-light" : "text-60-light border-2 border-60-light"} hidden md:flex text-xl text-30-light hover:bg-10-light hover:border-0`} text='Contact Me' />
 
-            <div className="flex md:hidden flex-col gap-2 w-8 items-end">
-                <span className="block w-8 h-1 bg-black rounded-full" />
-                <span className="block w-8 h-1 bg-black rounded-full" />
-                <span className="block w-5 h-1 bg-black rounded-full" />
-            </div>
+            <MenuButton opened={opened} setOpened={setOpened} />
 
+            <NavMenu opened={opened} />
 
         </nav>
     )
