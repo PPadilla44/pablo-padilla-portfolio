@@ -1,13 +1,24 @@
+import Hero from "./components/Hero";
 import Nav from "./components/Nav";
+
 
 function App() {
   return (
-    <div className="bg-60-light w-screen h-screen">
-      <Nav />
+    <div className="w-full h-full bg-60-light">
 
-      <main className="ml-44">
+      <Hero />
 
+
+
+      <main className="h-full w-full -mt-20">
+        <Nav/>
+
+        <div className="bg-red-300 h-screen">
+          dsads
+        </div>
+        <div className="h-screen bg-white"></div>
       </main>
+
     </div>
   );
 }
