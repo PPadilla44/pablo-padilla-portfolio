@@ -11,7 +11,7 @@ const Hero = () => {
 
                     <div className="md:gap-1 flex flex-col items-center md:items-start">
                         <h1 className="text-5xl md:text-8xl font-bold" >Pablo Padilla</h1>
-                        <h3 className="text-2xl font-semibold">Full-Stack Engineer</h3>
+                        <h3 className="text-2xl md:text-4xl font-semibold">Full-Stack Engineer</h3>
                     </div>
 
                     <div className="flex gap-5">
