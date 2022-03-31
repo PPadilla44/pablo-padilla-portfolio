@@ -1,6 +1,6 @@
-import Hero from "./components/Hero";
+import Hero from "./views/Hero";
 import Nav from "./components/Nav";
-import Section from "./components/Section";
+import Skills from "./views/Skills";
 
 
 function App() {
@@ -11,23 +11,10 @@ function App() {
       <Nav />
       <Hero />
 
-      <main className="bg-60-light gap-9 flex flex-col">
+      <main className="bg-white gap-9 flex flex-col">
+        <Skills />
 
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
+
 
       </main>
 

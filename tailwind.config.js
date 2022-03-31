@@ -7,9 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "60-light": '#E9E8E8',
-        "30-light": '#FFFFFF',
-        "10-light": '#BD1616',
+        "burg": '#A36768',
+        "dom": '#BD1616',
         "btn": "rgba(0, 0, 0, 0.5);",
         "darkish": "rgba(0, 0, 0, 0.1);"
       },

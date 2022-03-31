@@ -6,7 +6,7 @@ describe('<Button />', () => {
     let wrapper: ShallowWrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<Button className='bg-10-light text-xl text-30-light' text='Contact Me' />);
+        wrapper = shallow(<Button className='bg-dom text-xl text-white' text='Contact Me' />);
     })
 
     it('should render correctly', () => {
