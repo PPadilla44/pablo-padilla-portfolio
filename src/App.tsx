@@ -13,9 +13,6 @@ function App() {
 
       <main className="bg-white gap-9 flex flex-col">
         <Skills />
-
-
-
       </main>
 
     </>

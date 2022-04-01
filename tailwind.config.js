@@ -17,6 +17,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero': "url('/public/images/hero.png')",
+        "skills-grad": "linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(163, 103, 104, 0.08) 100%)"
       },
       backgroundPosition: {
         'hero-pos': 'left 10% top 40%'
