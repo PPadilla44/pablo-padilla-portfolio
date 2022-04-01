@@ -32,7 +32,7 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, right = fa
                                 tooltipText={s.name}
                                 key={`Skil-${i}-${skills.length}`}
                                 className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-around flex items-center justify-center w-14 h-14 
-                                overflow-hidden hover:shadow-black hover:-translate-y-1 hover:drop-shadow-xl transition-all`}>
+                                overflow-hidden hover:shadow-black hover:drop-shadow-xl transition-all hover:animate-bounce`}>
                                 <Icon icon={s.icon} height="45" color={s.color} />
                             </ToolTip>
                         )
