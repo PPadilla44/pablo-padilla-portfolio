@@ -8,14 +8,14 @@ interface ToolTipProps {
 }
 
 const ToolTip: React.FC<ToolTipProps> = ({ children, tooltipText, callBack, className }) => {
-
+    
 
     return (
         <>
             <button data-tip={tooltipText} type="button" className={className} >
                 {children}
             </button>
-            <ReactTooltip place="top" type="dark" effect="solid"   />
+            <ReactTooltip place="top" type="dark" effect="solid" />
         </>
     );
 }

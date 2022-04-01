@@ -12,13 +12,21 @@ function App() {
       <Nav />
       <Hero />
 
-      <main className="bg-white gap-9 flex flex-col">
+      <main className="bg-white flex flex-col">
         <Skills />
-        <Section>
+        <Section className="bg-burg">
+          start
           <div className="h-96">
-            ds
           </div>
+          <div className="h-96">
+          </div>
+          <div className="h-96">
+          </div>
+          <div className="h-96">
+          </div>
+        
         </Section>
+       
       </main>
 
     </>
