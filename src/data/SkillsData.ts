@@ -4,7 +4,7 @@ import { SkillBlockProps } from "../components/SkillBlock/SkillBlock"
 export const SkillsData: SkillBlockProps[] = [
     {
         title: 'Languages',
-        icon: "bx:code-alt",
+        icon: "fa6-solid:code",
         skills: [
             { icon: "logos:java", name: "Java" },
             { icon: "logos:python", name: "Python" },
@@ -19,7 +19,7 @@ export const SkillsData: SkillBlockProps[] = [
     {
         right: true,
         title: 'Frameworks & Libraries',
-        icon: "fluent:library-20-filled",
+        icon: "ion:library",
         skills: [
             { icon: "logos:react", name: "React" },
             { icon: "logos:redux", name: "Redux" },
@@ -35,7 +35,7 @@ export const SkillsData: SkillBlockProps[] = [
     },
     {
         title: 'Tools',
-        icon: "entypo:tools",
+        icon: "clarity:ruler-pencil-solid",
         skills: [
             { icon: "logos:figma", name: "Figma" },
             { icon: "logos:git-icon", name: "Git" },
