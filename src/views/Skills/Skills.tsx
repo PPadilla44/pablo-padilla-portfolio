@@ -11,11 +11,11 @@ const Skills = () => {
                 {
                     SkillsData.map((data, i) => (
                         <SkillBlock
-                        key={`skilldata-${data.title}-${i}`}
-                        icon={data.icon}
-                        skills={data.skills}
-                        title={data.title}
-                        right={data.right}
+                            key={`skilldata-${data.title}-${i}`}
+                            icon={data.icon}
+                            skills={data.skills}
+                            title={data.title}
+                            right={data.right}
                         />
                     ))
                 }

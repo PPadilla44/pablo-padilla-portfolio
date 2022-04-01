@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
 import React from 'react'
+import ToolTip from '../ToolTip';
 
 export interface SkillDataInterace {
     icon: string,
@@ -27,9 +28,13 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, right = fa
                 {
                     skills.map((s, i) => {
                         return (
-                            <div key={`Skil-${i}-${skills.length}`} className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-around flex items-center justify-center w-14 h-14 overflow-hidden`}>
+                            <ToolTip
+                                tooltipText={s.name}
+                                key={`Skil-${i}-${skills.length}`}
+                                className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-around flex items-center justify-center w-14 h-14 
+                                overflow-hidden hover:shadow-black hover:-translate-y-1 hover:drop-shadow-xl transition-all`}>
                                 <Icon icon={s.icon} height="45" color={s.color} />
-                            </div>
+                            </ToolTip>
                         )
                     })
                 }
