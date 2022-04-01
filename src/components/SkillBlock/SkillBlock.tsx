@@ -18,12 +18,12 @@ export interface SkillBlockProps {
 const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, right = false }) => {
 
     return (
-        <div className={`shadow-around w-2/3 bg-white h-64 p-6 rounded-2xl flex justify-between items-center text-center ${right && `flex-row-reverse self-end`}`}>
+        <div className={`shadow-around w-full md:w-2/3 bg-white lg:h-64 p-6 rounded-2xl flex justify-between gap-3 items-center text-center flex-col lg:flex-row ${right && `flex-row-reverse self-end`}`}>
             <div className='w-64 flex items-center flex-col text-burg justify-between h-full '>
                 <h2 className='text-4xl font-semibold'>{title}</h2>
                 <Icon icon={icon} height="150" />
             </div>
-            <ul className='flex gap-5 w-96 h-full flex-wrap justify-center items-center '>
+            <ul className='flex gap-5 w-full lg:w-96 h-full flex-wrap justify-center items-center'>
                 {
                     skills.map((s, i) => {
                         return (
