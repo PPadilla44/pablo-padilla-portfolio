@@ -19,7 +19,7 @@ export const SkillsData: SkillBlockProps[] = [
     {
         right: true,
         title: 'Frameworks & Libraries',
-        icon: "ion:library",
+        icon: "fluent:library-20-filled",
         skills: [
             { icon: "logos:react", name: "React" },
             { icon: "logos:redux", name: "Redux" },
