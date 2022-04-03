@@ -15,16 +15,16 @@ export interface SkillBlockProps {
     icon: string;
 }
 
-const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills}) => {
+const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills }) => {
 
     return (
-        <div className={`relative w-full lg:w-fit p-6 flex items-center justify-center text-center min-h-[200px] h-full `}>
+        <div className={`relative w-full lg:w-fit p-6 flex items-center gap-3 justify-between flex-col  text-center min-h-[200px] h-full `}>
             <div className='text-burg z-10 absolute opacity-20'>
                 <Icon icon={icon} height="200" />
             </div>
+            <span className='text-4xl font-extralight text-black z-20 tracking-wider '>{title}</span>
             <div className='gap-3 flex flex-col sm:w-96 w-full'>
 
-                <span className='text-4xl font-extralight text-black z-20 tracking-wider '>{title}</span>
 
                 <ul className='flex gap-5 h-full flex-wrap justify-center items-center'>
                     {
