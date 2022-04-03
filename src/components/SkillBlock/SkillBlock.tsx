@@ -19,7 +19,7 @@ export interface SkillBlockProps {
 const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, right = false }) => {
 
     return (
-        <div className={`shadow-around w-full md:w-2/3 bg-white lg:h-64 p-6 rounded-2xl flex justify-between gap-3 items-center text-center flex-col lg:flex-row ${right && `flex-row-reverse self-end`}`}>
+        <div className={`shadow-around w-full md:w-2/3 bg-white lg:h-64 p-6 rounded-2xl flex justify-between gap-3 items-center text-center flex-col lg:flex-row ${right && `lg:flex-row-reverse self-end`}`}>
             <div className='w-64 flex items-center flex-col text-burg justify-between h-full '>
                 <h2 className='text-4xl font-semibold'>{title}</h2>
                 <Icon icon={icon} height="150" />
