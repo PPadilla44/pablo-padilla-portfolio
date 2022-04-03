@@ -17,7 +17,6 @@ export const SkillsData: SkillBlockProps[] = [
 
     },
     {
-        right: true,
         title: 'Frameworks & Libraries',
         icon: "fluent:library-20-filled",
         skills: [
@@ -48,7 +47,6 @@ export const SkillsData: SkillBlockProps[] = [
         ]
     },
     {
-        right: true,
         title: 'Databases',
         icon: "fa-solid:database",
         skills: [

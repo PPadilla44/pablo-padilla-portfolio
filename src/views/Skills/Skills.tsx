@@ -14,7 +14,6 @@ const Skills = () => {
                             icon={data.icon}
                             skills={data.skills}
                             title={data.title}
-                            right={data.right}
                         />
                     ))
                 }

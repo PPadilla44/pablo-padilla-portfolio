@@ -14,16 +14,17 @@ function App() {
 
       <main className="bg-secondary flex flex-col">
         <Skills />
-        <Section className="bg-secondary">
-          start
-          <div className="h-96">
+        <Section>
+          <div className="h-96 w-full text-center">
+            CONTEXT
           </div>
-          <div className="h-96">
+          <div className="h-96 w-full text-center">
+            CONTEXT
           </div>
-          <div className="h-96">
+          <div className="h-96 w-full text-center">
+            CONTEXT
           </div>
-          <div className="h-96">
-          </div>
+
 
         </Section>
 

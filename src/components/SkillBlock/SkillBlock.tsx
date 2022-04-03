@@ -10,13 +10,12 @@ export interface SkillDataInterace {
 }
 
 export interface SkillBlockProps {
-    right?: boolean;
     title: string;
     skills: SkillDataInterace[];
     icon: string;
 }
 
-const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, right = false }) => {
+const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills}) => {
 
     return (
         <div className={`relative w-full lg:w-fit p-6 flex items-center justify-center text-center min-h-[200px] h-full `}>
