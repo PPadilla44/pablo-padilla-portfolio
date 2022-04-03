@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "burg": '#A36768',
+        "burg": '#BB8378',
         "dom": '#BD1616',
+        "secondary": '#ebebeb',
         "btn": "rgba(0, 0, 0, 0.5);",
         "darkish": "rgba(0, 0, 0, 0.1);"
       },
@@ -17,7 +18,6 @@ module.exports = {
       },
       backgroundImage: {
         'hero': "url('/public/images/hero.png')",
-        "skills-grad": "linear-gradient(180deg, rgba(255, 255, 255, 0) 10%, rgba(163, 103, 104, 1) 100%)",
       },
       backgroundPosition: {
         'hero-pos': 'left 10% top 40%'

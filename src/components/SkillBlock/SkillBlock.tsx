@@ -19,26 +19,30 @@ export interface SkillBlockProps {
 const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, right = false }) => {
 
     return (
-        <div className={`shadow-around w-full md:w-2/3 bg-white lg:h-64 p-6 rounded-2xl flex justify-between gap-3 items-center text-center flex-col lg:flex-row ${right && `lg:flex-row-reverse self-end`}`}>
-            <div className='w-64 flex items-center flex-col text-burg justify-between h-full '>
-                <h2 className='text-4xl font-semibold'>{title}</h2>
-                <Icon icon={icon} height="150" />
+        <div className={`relative w-full lg:w-fit p-6 flex items-center justify-center text-center min-h-[200px] h-full `}>
+            <div className='text-burg z-10 absolute opacity-20'>
+                <Icon icon={icon} height="200" />
             </div>
-            <ul className='flex gap-5 w-full lg:w-96 h-full flex-wrap justify-center items-center'>
-                {
-                    skills.map((s, i) => {
-                        return (
-                            <ToolTip
-                                tooltipText={s.name}
-                                key={`Skil-${i}-${skills.length}`}
-                                className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-around flex items-center justify-center w-14 h-14 
-                                overflow-hidden hover:shadow-black hover:drop-shadow-xl transition-all hover:animate-bounce`}>
-                                <Icon icon={s.icon} height="45" color={s.color} />
-                            </ToolTip>
-                        )
-                    })
-                }
-            </ul>
+            <div className='gap-3 flex flex-col sm:w-96 w-full'>
+
+                <span className='text-4xl font-extralight text-black z-20 tracking-wider '>{title}</span>
+
+                <ul className='flex gap-5 h-full flex-wrap justify-center items-center'>
+                    {
+                        skills.map((s, i) => {
+                            return (
+                                <ToolTip
+                                    tooltipText={s.name}
+                                    key={`Skil-${i}-${skills.length}`}
+                                    className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-md flex items-center justify-center w-14 h-14 
+                                overflow-hidden hover:shadow-xl transition-all hover:animate-bounce z-20`}>
+                                    <Icon icon={s.icon} height="45" color={s.color} />
+                                </ToolTip>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
         </div>
     )
 }

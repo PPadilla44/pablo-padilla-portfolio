@@ -5,8 +5,8 @@ import { SkillsData } from '../../data/SkillsData'
 const Skills = () => {
 
     return (
-        <Section className='py-20 bg-skills-grad'>
-            <div className='flex flex-col gap-5 '>
+        <Section className='py-20 bg-secondary'>
+            <div className='flex gap-6 w-full items-center justify-center flex-wrap'>
                 {
                     SkillsData.map((data, i) => (
                         <SkillBlock

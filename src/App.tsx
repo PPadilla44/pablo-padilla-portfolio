@@ -12,9 +12,9 @@ function App() {
       <Nav />
       <Hero />
 
-      <main className="bg-white flex flex-col">
+      <main className="bg-secondary flex flex-col">
         <Skills />
-        <Section className="bg-burg">
+        <Section className="bg-secondary">
           start
           <div className="h-96">
           </div>
@@ -24,9 +24,9 @@ function App() {
           </div>
           <div className="h-96">
           </div>
-        
+
         </Section>
-       
+
       </main>
 
     </>
