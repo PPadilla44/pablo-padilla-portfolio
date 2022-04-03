@@ -19,7 +19,7 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills }) => {
 
     return (
         <div className={`relative w-full lg:w-fit p-6 flex items-center gap-3 justify-between flex-col  text-center min-h-[200px] h-full `}>
-            <div className='text-burg z-10 absolute opacity-20'>
+            <div className='text-burg z-10 absolute opacity-20  top-1/2 -translate-y-1/2'>
                 <Icon icon={icon} height="200" />
             </div>
             <span className='text-4xl font-extralight text-black z-20 tracking-wider '>{title}</span>
