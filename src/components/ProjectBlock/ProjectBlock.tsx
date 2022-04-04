@@ -13,7 +13,7 @@ export interface ProjectBlockProps {
 const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, imgPaths, description, links, techs, title }) => {
     return (
         <div className={`${reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
-            <div className={`${reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl w-full `}>
+            <div className={`${reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
                 <h3 className='font-bold text-6xl'>{title}</h3>
                 <p className='text-2xl'>
                     {description}
@@ -24,12 +24,20 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, imgPaths,
                     }
                 </ul>
                 <div className='flex gap-2'>
-                    <Button text='View Github Repo' className='bg-dom text-white font-light' />
-                    <Button text='View In Store' className='bg-dom text-white font-light' />
+                    <a href={links[0]} target="_blank" rel="noreferrer">
+                        <Button text='View Github Repo' className='bg-dom text-white font-light' />
+                    </a>
+                    {
+                        links.length > 1
+                        &&
+                        <a href={links[1]} target="_blank" rel="noreferrer">
+                            <Button text='View Application' className='bg-dom text-white font-light' />
+                        </a>
+                    }
                 </div>
             </div>
 
-            <div className='w-80 h-full  flex items-center justify-center relative'>
+            <div className='w-80 min-w-[320px] h-full flex items-center justify-center relative'>
                 {
                     imgPaths.length > 1 ?
                         <>
