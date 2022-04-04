@@ -5,7 +5,7 @@ import { SkillsData } from '../../data/SkillsData'
 const Skills = () => {
 
     return (
-        <Section className='py-20 bg-secondary'>
+        <Section className='py-20 bg-gradient-to-b from-secondary to-white'>
             <div className='flex gap-6 w-full items-center justify-center flex-wrap'>
                 {
                     SkillsData.map((data, i) => (

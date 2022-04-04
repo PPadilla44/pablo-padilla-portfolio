@@ -12,7 +12,7 @@ function App() {
       <Nav />
       <Hero />
 
-      <main className="bg-secondary flex flex-col">
+      <main className="bg-white flex flex-col">
         <Skills />
         <Section>
           <div className="h-96 w-full text-center">
