@@ -8,9 +8,10 @@ export interface ProjectBlockProps {
     title: string;
     links: string[];
     techs: string[];
+    imagePos?: string;
 }
 
-const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, imgPaths, description, links, techs, title }) => {
+const ProjectBlock: React.FC<ProjectBlockProps> = ({ imagePos="object-center", reversed = false, imgPaths, description, links, techs, title }) => {
     return (
         <div className={`${reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
             <div className={`${reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
@@ -41,11 +42,11 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, imgPaths,
                 {
                     imgPaths.length > 1 ?
                         <>
-                            <img src={imgPaths[0]} alt="" className='object-cover h-full rounded-xl shadow-md ' />
-                            <img src={imgPaths[1]} alt="" className='h-5/6 rounded-xl absolute -right-3 bottom-0 shadow-md' />
+                            <img src={imgPaths[0]} alt="" className={`${imagePos}  object-cover  h-full rounded-xl shadow-md`} />
+                            <img src={imgPaths[1]} alt="" className={`max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} />
                         </>
                         :
-                        <img src={imgPaths[0]} alt="" className='object-contain h-full rounded-xl shadow-md ' />
+                        <img src={imgPaths[0]} alt="" className={`object-cover h-full rounded-xl shadow-md`} />
 
                 }
             </div>

@@ -18,7 +18,8 @@ export const ProjectData: ProjectBlockProps[] = [
     },
     {
         title: "Discord Clone",
-        imgPaths: ['/images/drawDashD.png', "/images/drawDashM.jpg"],
+        imgPaths: ['/images/Discord.png', "/images/DiscordLogo.svg"],
+        imagePos: "object-left",
         links: ["https://github.com/PPadilla44/Discord-Clone"],
         techs: ["MERN", "MongoDB", "Express", "React", "NodeJS", "Socket io"],
         description: "Led a team to develop a clone of Discord using Nodejs back-end framework and React front-end framework for a responsive one-page web application"
