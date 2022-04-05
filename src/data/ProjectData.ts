@@ -14,7 +14,7 @@ export const ProjectData: ProjectBlockProps[] = [
     {
         title: "Draw It",
         mainImage: {
-            path:"/images/drawDashD.png",
+            path:"/images/drawDashDesk.png",
             name: "Draw It Desktop"
         },
         secondaryImage: {
@@ -29,7 +29,7 @@ export const ProjectData: ProjectBlockProps[] = [
     {
         title: "Discord Clone",
         mainImage: {
-            path: "/images/Discord.png",
+            path: "/images/DiscordDesk.png",
             className: "object-left",
             name: "Discord Clone Desktop"
         },

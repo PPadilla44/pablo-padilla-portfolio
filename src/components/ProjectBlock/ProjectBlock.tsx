@@ -46,7 +46,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
 
             <div className='w-80 min-w-[320px] h-full flex items-center justify-center relative'>
                 <img src={mainImage.path} alt={mainImage.name} className={`${mainImage.className} object-cover h-full rounded-xl shadow-md`} />
-                { secondaryImage && <img src={secondaryImage.path} alt={mainImage.name} className={`${secondaryImage.className} max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} /> }
+                { secondaryImage && <img src={secondaryImage.path} alt={secondaryImage.name} className={`${secondaryImage.className} max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} /> }
             </div>
 
         </div>
