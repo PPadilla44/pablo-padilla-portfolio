@@ -1,17 +1,23 @@
 import React from 'react';
 import Button from '../Button';
 
+type Image = {
+    path: string,
+    name: string,
+    className?: string,
+}
+
 export interface ProjectBlockProps {
     reversed?: boolean;
-    imgPaths: string[];
     description: string;
     title: string;
     links: string[];
     techs: string[];
-    imagePos?: string;
+    mainImage: Image,
+    secondaryImage?: Image
 }
 
-const ProjectBlock: React.FC<ProjectBlockProps> = ({ imagePos="object-center", reversed = false, imgPaths, description, links, techs, title }) => {
+const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage, secondaryImage, description, links, techs, title }) => {
     return (
         <div className={`${reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
             <div className={`${reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
@@ -39,17 +45,8 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ imagePos="object-center", r
             </div>
 
             <div className='w-80 min-w-[320px] h-full flex items-center justify-center relative'>
-                <img src={imgPaths[0]} alt="" className={`object-left object-cover  h-full rounded-xl shadow-md`} />
-                {
-                    imgPaths.length > 1 ?
-                        <>
-                            <img src={imgPaths[0]} alt="" className={`${imagePos} object-cover  h-full rounded-xl shadow-md`} />
-                            <img src={imgPaths[1]} alt="" className={`max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} />
-                        </>
-                        :
-                        <img src={imgPaths[0]} alt="" className={`object-cover h-full rounded-xl shadow-md`} />
-
-                }
+                <img src={mainImage.path} alt={mainImage.name} className={`${mainImage.className} object-cover h-full rounded-xl shadow-md`} />
+                { secondaryImage && <img src={secondaryImage.path} alt={mainImage.name} className={`${secondaryImage.className} max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} /> }
             </div>
 
         </div>
