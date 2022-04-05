@@ -42,7 +42,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ imagePos="object-center", r
                 {
                     imgPaths.length > 1 ?
                         <>
-                            <img src={imgPaths[0]} alt="" className={`${imagePos}  object-cover  h-full rounded-xl shadow-md`} />
+                            <img src={imgPaths[0]} alt="" className={`${imagePos} object-cover  h-full rounded-xl shadow-md`} />
                             <img src={imgPaths[1]} alt="" className={`max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} />
                         </>
                         :

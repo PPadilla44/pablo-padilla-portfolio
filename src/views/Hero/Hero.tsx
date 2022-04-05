@@ -12,7 +12,7 @@ const Hero = () => {
             <div className="md:max-w-7xl w-full flex z-20 items-start lg:items-center justify-center lg:justify-start h-[55%]">
 
 
-                <div className="md:max-w-[620px] w-full text-white flex flex-col gap-5 items-center justify-center lg:items-start">
+                <div className="md:max-w-2xl w-full text-white flex flex-col gap-5 items-center justify-center lg:items-start">
 
                     <div className="flex flex-col items-center lg:items-start pt-5 lg:p-0">
                         <h1 className="text-5xl md:text-8xl font-semibold" >Pablo Padilla</h1>
@@ -20,9 +20,13 @@ const Hero = () => {
                     </div>
 
 
-                    <p className="text-xl md:text-3xl text-center lg:text-left font-light">
+                    {/* <p className="text-xl md:text-3xl text-center lg:text-left font-light">
                         I am a committed and enthusiastic full-stack engineer proficient in various programming languages.
                         I am experienced in all levels of web application development, including deployment and maintenance on cloud computing platforms.
+                    </p> */}
+                    <p className="text-xl md:text-3xl text-center lg:text-left font-light">
+                        I am a committed and enthusiastic full-stack developer located in the San Francisco Bay Area, proficient in various programming languages
+                        and all levels of web application development, including deployment and maintenance on cloud computing platforms.
                     </p>
 
                     <Button className='bg-dom text-white text-2xl' text='Contact Me' />
