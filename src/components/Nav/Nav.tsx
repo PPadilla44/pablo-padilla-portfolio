@@ -24,7 +24,7 @@ const Nav = () => {
 
             <div className='flex items-center'>
 
-                <Logo className='w-14 h-14 text-6xl font-bold tx' />
+                <Logo className='w-14 h-14 text-6xl font-bold' />
 
                 <div className={` ${color ? "text-black" : "text-white"} hidden md:flex items-center ml-14 gap-12 font-light text-xl`}>
                     <a href='/'>About Me</a>
@@ -35,7 +35,7 @@ const Nav = () => {
 
             </div>
 
-            <Button className={` ${color ? "bg-dom" : "text-white border-2 border-white"} hidden md:flex text-xl text-white hover:bg-dom hover:border-0`} text='Contact Me' />
+            <Button className={`bg-dom text-xl hidden md:flex  text-white`} text='Contact Me' />
 
             <MenuButton opened={opened} setOpened={setOpened} />
 
