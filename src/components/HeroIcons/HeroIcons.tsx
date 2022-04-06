@@ -12,7 +12,7 @@ const HeroIcons = () => {
         <div className='flex gap-3'>
             {
                 data.map((d, i) => (
-                    <a href={d.link} target={"_blank"} key={`${d.icon}-${i}`} className='cursor-pointer rounded-lg w-12 h-12 flex items-center justify-center active:bg-red-800 hover:bg-dom transition-all ease-in-out'>
+                    <a href={d.link} target="_blank" rel="noreferrer" key={`${d.icon}-${i}`} className='cursor-pointer rounded-lg w-12 h-12 flex items-center justify-center active:bg-red-800 hover:bg-dom transition-all ease-in-out'>
                         <Icon icon={d.icon} width={40} height={40} />
                     </a>
                 ))
