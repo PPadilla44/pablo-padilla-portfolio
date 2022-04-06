@@ -11,16 +11,13 @@ const Skills = () => {
             <div className='flex w-full items-center justify-around xl:justify-between  flex-wrap gap-2'>
                 {
                     SkillsData.map((data, i) => (
-                        <>
-                            <SkillBlock
-                                key={`skilldata-${data.title}-${i}`}
-                                icon={data.icon}
-                                skills={data.skills}
-                                title={data.title}
-                                smaller={data.smaller}
-                            />
-                            <div className='w-[1px] mx-1 h-44 bg-red-300 last-of-type:hidden rounded-xl hidden xl:inline-block '/>
-                        </>
+                        <SkillBlock
+                            key={`skilldata-${data.title}-${i}`}
+                            icon={data.icon}
+                            skills={data.skills}
+                            title={data.title}
+                            smaller={data.smaller}
+                        />
                     ))
                 }
             </div>
