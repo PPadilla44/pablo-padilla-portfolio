@@ -5,8 +5,12 @@ import { SkillsData } from '../../data/SkillsData'
 const Skills = () => {
 
     return (
-        <Section className='py-20 bg-gradient-to-b from-secondary to-white'>
-            <div className='flex gap-6 w-full items-center justify-center flex-wrap'>
+        <Section className='pb-20 pt-10  bg-burg'>
+        {/* // <Section className='pb-20 pt-10 bg-neutral-800'> */}
+            <h2 className='text-7xl text-center font-semibold text-white'>Skills</h2>
+
+            {/* <div className='flex gap-6 w-full items-center justify-between flex-wrap'> */}
+            <div className='flex gap-6 w-full items-center justify-between  flex-wrap'>
                 {
                     SkillsData.map((data, i) => (
                         <SkillBlock

@@ -3,6 +3,22 @@ import { SkillBlockProps } from "../components/SkillBlock/SkillBlock"
 
 export const SkillsData: SkillBlockProps[] = [
     {
+        title: 'Frameworks & Libraries',
+        icon: "fluent:library-20-filled",
+        skills: [
+            { icon: "logos:react", name: "React" },
+            { icon: "logos:redux", name: "Redux" },
+            { icon: "logos:tailwindcss-icon", name: "Tail Wind" },
+            { icon: "logos:jest", name: "Jest" },
+            { icon: "vscode-icons:file-type-light-next", name: "Next js" },
+            // { icon: "akar-icons:bootstrap-fill", name: "Boot Strap", color: "7611F7" },
+            { icon: "logos:spring-icon", name: "Spring Boot" },
+            { icon: "bxl:flask", name: "Flask" },
+            // { icon: "file-icons:jinja", name: "Jinja2" },
+            { icon: "logos:nodejs", name: "Nodejs" },
+        ]
+    },
+    {
         title: 'Languages',
         icon: "fa6-solid:code",
         skills: [
@@ -15,22 +31,6 @@ export const SkillsData: SkillBlockProps[] = [
             { icon: "vscode-icons:file-type-css", name: "CSS" }
         ]
 
-    },
-    {
-        title: 'Frameworks & Libraries',
-        icon: "fluent:library-20-filled",
-        skills: [
-            { icon: "logos:react", name: "React" },
-            { icon: "logos:redux", name: "Redux" },
-            { icon: "logos:tailwindcss-icon", name: "Tail Wind" },
-            { icon: "logos:jest", name: "Jest" },
-            { icon: "vscode-icons:file-type-light-next", name: "Next js" },
-            { icon: "akar-icons:bootstrap-fill", name: "Boot Strap", color: "7611F7" },
-            { icon: "logos:spring-icon", name: "Spring Boot" },
-            { icon: "bxl:flask", name: "Flask" },
-            { icon: "file-icons:jinja", name: "Jinja2" },
-            { icon: "logos:nodejs", name: "Nodejs" },
-        ]
     },
     {
         title: 'Tools',
@@ -46,14 +46,14 @@ export const SkillsData: SkillBlockProps[] = [
             { icon: "logos:auth0-icon", name: "Auth0" },
         ]
     },
-    {
-        title: 'Databases',
-        icon: "fa-solid:database",
-        skills: [
-            { icon: "logos:mysql-icon", name: "MySQL" },
-            { icon: "vscode-icons:file-type-mongo", name: "MongoDB" },
-            { icon: "logos:firebase", name: "Firebase" },
-            { icon: "logos:postgresql", name: "PostgreSQL" },
-        ]
-    }
+    // {
+    //     title: 'Databases',
+    //     icon: "fa-solid:database",
+    //     skills: [
+    //         { icon: "logos:mysql-icon", name: "MySQL" },
+    //         { icon: "vscode-icons:file-type-mongo", name: "MongoDB" },
+    //         { icon: "logos:firebase", name: "Firebase" },
+    //         { icon: "logos:postgresql", name: "PostgreSQL" },
+    //     ]
+    // }
 ]

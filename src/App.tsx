@@ -3,6 +3,8 @@ import Nav from "./components/Nav";
 import Skills from "./views/Skills";
 import Section from "./components/Section";
 import Projects from "./views/Projects";
+import ProjectBlock from "./components/ProjectBlock";
+import { ExperienceData } from "./data/ExperienceData";
 
 
 function App() {
@@ -14,20 +16,18 @@ function App() {
       <Hero />
 
       <main className="bg-white flex flex-col">
-        <Skills />
-        
         <Projects />
+        <Skills />
 
-        <Section>
-          <div className="h-96 w-full text-center">
-            CONTEXT
-          </div>
-          <div className="h-96 w-full text-center">
-            CONTEXT
-          </div>
-          <div className="h-96 w-full text-center">
-            CONTEXT
-          </div>
+
+        <Section className="bg-gradient-to-b from-secondary to-white py-20">
+          <h2 className='text-7xl text-left font-semibold text-black'>Experience</h2>
+
+          {
+            ExperienceData.map((p, i) => (
+              <ProjectBlock key={`proect-${i}`} {...p} />
+            ))
+          }
 
 
         </Section>

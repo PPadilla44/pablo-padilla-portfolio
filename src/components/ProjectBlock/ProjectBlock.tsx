@@ -19,10 +19,10 @@ export interface ProjectBlockProps {
 
 const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage, secondaryImage, description, links, techs, title }) => {
     return (
-        <div className={`${reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
-            <div className={`${reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
-                <h3 className='font-bold text-6xl'>{title}</h3>
-                <p className='text-2xl'>
+        <div className={`${!reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
+            <div className={`${!reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
+                <h3 className='text-3xl font-normal'>{title}</h3>
+                <p className='text-xl font-light'>
                     {description}
                 </p>
                 <ul className='flex gap-2 font-light'>
