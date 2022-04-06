@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react';
 import React from 'react';
 import Button from '../Button';
 
@@ -25,9 +26,11 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
                 <p>
                     {description}
                 </p>
-                <ul className='flex gap-2 font-light'>
+                <ul className='flex gap-3 text-burg'>
                     {
-                        techs.map((t, i) => <h5 key={`tech-${t}-${i}`}>{t}</h5>)
+                        techs.map((t, i) => (
+                            <Icon key={`tech-${i}`} width={18} height={18} icon={t} />
+                        ))
                     }
                 </ul>
                 <div className='flex gap-2'>
