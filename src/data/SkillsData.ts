@@ -33,6 +33,18 @@ export const SkillsData: SkillBlockProps[] = [
 
     },
     {
+        title: 'Databases',
+        icon: "fa-solid:database",
+        skills: [
+            { icon: "logos:mysql-icon", name: "MySQL" },
+            { icon: "vscode-icons:file-type-sqlite", name: "Sqlite" },
+            { icon: "vscode-icons:file-type-mongo", name: "MongoDB" },
+            { icon: "logos:firebase", name: "Firebase" },
+            { icon: "logos:postgresql", name: "PostgreSQL" },
+        ],
+        smaller: true,
+    },
+    {
         title: 'Tools',
         icon: "clarity:ruler-pencil-solid",
         skills: [
@@ -46,14 +58,4 @@ export const SkillsData: SkillBlockProps[] = [
             { icon: "logos:auth0-icon", name: "Auth0" },
         ]
     },
-    // {
-    //     title: 'Databases',
-    //     icon: "fa-solid:database",
-    //     skills: [
-    //         { icon: "logos:mysql-icon", name: "MySQL" },
-    //         { icon: "vscode-icons:file-type-mongo", name: "MongoDB" },
-    //         { icon: "logos:firebase", name: "Firebase" },
-    //         { icon: "logos:postgresql", name: "PostgreSQL" },
-    //     ]
-    // }
 ]

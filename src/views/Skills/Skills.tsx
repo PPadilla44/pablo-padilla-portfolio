@@ -6,19 +6,21 @@ const Skills = () => {
 
     return (
         <Section className='pb-20 pt-10  bg-burg'>
-        {/* // <Section className='pb-20 pt-10 bg-neutral-800'> */}
             <h2 className='text-7xl text-center font-semibold text-white'>Skills</h2>
 
-            {/* <div className='flex gap-6 w-full items-center justify-between flex-wrap'> */}
-            <div className='flex gap-6 w-full items-center justify-between  flex-wrap'>
+            <div className='flex w-full items-center justify-around xl:justify-between  flex-wrap gap-2'>
                 {
                     SkillsData.map((data, i) => (
-                        <SkillBlock
-                            key={`skilldata-${data.title}-${i}`}
-                            icon={data.icon}
-                            skills={data.skills}
-                            title={data.title}
-                        />
+                        <>
+                            <SkillBlock
+                                key={`skilldata-${data.title}-${i}`}
+                                icon={data.icon}
+                                skills={data.skills}
+                                title={data.title}
+                                smaller={data.smaller}
+                            />
+                            <div className='w-[1px] mx-1 h-44 bg-red-300 last-of-type:hidden rounded-xl hidden xl:inline-block '/>
+                        </>
                     ))
                 }
             </div>

@@ -13,22 +13,23 @@ export interface SkillBlockProps {
     title: string;
     skills: SkillDataInterace[];
     icon: string;
+    smaller?: boolean;
 }
 
-const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills }) => {
+const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller }) => {
 
     return (
-        <div className={`w-full lg:w-fit py-6 flex items-center gap-3 justify-between flex-col text-center min-h-[232px] h-full`}>
+        <div className={`w-fit flex items-center gap-4 justify-center flex-col text-center min-h-[232px] h-full `}>
 
-            <span className='text-3xl font-normal text-white z-20 justify-self-start'>{title}</span>
+            <span className='text-3xl font-normal text-white z-20 justify-self-start whitespace-nowrap'>{title}</span>
 
-            <div className='gap-3 flex flex-col sm:w-80 w-full relative items-center min-h-[132px] h-full justify-center'>
+            <div className={`${smaller ? "w-64" : " w-72"}  flex flex-col relative items-center min-h-[132px] h-full justify-center`}>
 
                 <div className='text-dom z-10 absolute opacity-20  top-1/2 -translate-y-1/2'>
                     <Icon icon={icon} height="150" />
                 </div>
 
-                <ul className='flex gap-5 h-full flex-wrap justify-center items-center'>
+                <ul className='flex gap-4 h-full flex-wrap justify-center items-center '>
                     {
                         skills.map((s, i) => {
                             return (
