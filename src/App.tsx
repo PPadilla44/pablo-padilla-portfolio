@@ -21,7 +21,7 @@ function App() {
 
 
         <Section className="bg-gradient-to-b from-secondary to-white py-20">
-          <h2 className='text-7xl text-left font-semibold text-black'>Experience</h2>
+          <h1 className='text-left text-black'>Experience</h1>
 
           {
             ExperienceData.map((p, i) => (

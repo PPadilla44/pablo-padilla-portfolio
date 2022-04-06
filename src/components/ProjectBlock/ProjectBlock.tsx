@@ -21,13 +21,13 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
     return (
         <div className={`${!reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
             <div className={`${!reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
-                <h3 className='text-3xl font-normal'>{title}</h3>
-                <p className='text-xl font-light'>
+                <h2>{title}</h2>
+                <p>
                     {description}
                 </p>
                 <ul className='flex gap-2 font-light'>
                     {
-                        techs.map((t, i) => <li key={`tech-${t}-${i}`}>{t}</li>)
+                        techs.map((t, i) => <h5 key={`tech-${t}-${i}`}>{t}</h5>)
                     }
                 </ul>
                 <div className='flex gap-2'>

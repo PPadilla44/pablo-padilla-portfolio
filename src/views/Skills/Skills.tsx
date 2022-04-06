@@ -6,7 +6,7 @@ const Skills = () => {
 
     return (
         <Section className='pb-20 pt-10  bg-burg'>
-            <h2 className='text-7xl text-center font-semibold text-white'>Skills</h2>
+            <h1 className='text-center text-white'>Skills</h1>
 
             <div className='flex w-full items-center justify-around xl:justify-between  flex-wrap gap-2'>
                 {

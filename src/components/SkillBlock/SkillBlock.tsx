@@ -21,7 +21,7 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller })
     return (
         <div className={`w-fit flex items-center gap-4 justify-center flex-col text-center min-h-[232px] h-full `}>
 
-            <span className='text-3xl font-normal text-white z-20 justify-self-start whitespace-nowrap'>{title}</span>
+            <h2 className='text-white z-20 justify-self-start whitespace-nowrap'>{title}</h2>
 
             <div className={`${smaller ? "w-64" : " w-72"}  flex flex-col relative items-center min-h-[132px] h-full justify-center`}>
 

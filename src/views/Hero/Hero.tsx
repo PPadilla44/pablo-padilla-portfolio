@@ -15,16 +15,11 @@ const Hero = () => {
                 <div className="md:max-w-xl w-full text-white flex flex-col gap-5 items-center justify-center lg:items-start">
 
                     <div className="flex flex-col items-center lg:items-start pt-5 lg:p-0">
-                        <h1 className="text-5xl md:text-7xl font-semibold" >Pablo Padilla</h1>
-                        <h3 className="text-2xl md:text-3xl font-normal">Full-Stack Engineer</h3>
+                        <h1>Pablo Padilla</h1>
+                        <h2>Full-Stack Engineer</h2>
                     </div>
 
-
-                    {/* <p className="text-xl md:text-3xl text-center lg:text-left font-light">
-                        I am a committed and enthusiastic full-stack engineer proficient in various programming languages.
-                        I am experienced in all levels of web application development, including deployment and maintenance on cloud computing platforms.
-                    </p> */}
-                    <p className="text-xl text-center lg:text-left font-light">
+                    <p>
                         I am a committed and enthusiastic full-stack developer located in the San Francisco Bay Area, proficient in various programming languages
                         and all levels of web application development, including deployment and maintenance on cloud computing platforms.
                     </p>

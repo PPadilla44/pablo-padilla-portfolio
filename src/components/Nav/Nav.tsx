@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Button from '../Button'
-import Logo from '../Logo'
 import MenuButton from '../MenuButton';
 import NavMenu from '../NavMenu';
 
@@ -25,9 +24,7 @@ const Nav = () => {
 
                 <div className='flex items-center'>
 
-                    {/* <Logo className='w-14 h-14 text-6xl font-bold' /> */}
-
-                    <div className={` ${color ? "text-black" : "text-white"} hidden md:flex items-center gap-12 font-light text-lg`}>
+                    <div className={` ${color ? "text-black" : "text-white"} hidden md:flex items-center gap-12`}>
                         <a href='/'>About Me</a>
                         <a href='/'>Skills</a>
                         <a href='/'>Projects</a>
@@ -36,7 +33,7 @@ const Nav = () => {
 
                 </div>
 
-                <Button className={`bg-dom text-xl hidden md:flex  text-white`} text='Contact Me' />
+                <Button className={`bg-dom text-xl hidden md:flex text-white`} text='Contact Me' />
 
                 <MenuButton opened={opened} setOpened={setOpened} />
 
