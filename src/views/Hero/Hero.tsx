@@ -1,4 +1,4 @@
-import Button from '../../components/Button'
+import HeroIcons from "../../components/HeroIcons"
 
 const Hero = () => {
 
@@ -24,7 +24,9 @@ const Hero = () => {
                         and all levels of web application development, including deployment and maintenance on cloud computing platforms.
                     </p>
 
-                    <Button className='bg-dom text-white text-2xl' text='Contact Me' />
+                    <HeroIcons />
+
+                    {/* <Button className='bg-dom text-white text-2xl' text='Contact Me' /> */}
 
                 </div>
 

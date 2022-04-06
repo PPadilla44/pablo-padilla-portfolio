@@ -33,7 +33,7 @@ const Nav = () => {
 
                 </div>
 
-                <Button className={`bg-dom text-xl hidden md:flex text-white`} text='Contact Me' />
+                <Button className={`bg-dom hover:bg-red-600 active:bg-red-800 text-xl hidden md:flex text-white transition-all ease-in-out`} text='Contact Me' />
 
                 <MenuButton opened={opened} setOpened={setOpened} />
 
