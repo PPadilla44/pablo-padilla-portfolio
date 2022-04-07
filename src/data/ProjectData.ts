@@ -35,7 +35,8 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         secondaryImage: {
             path: "/images/DiscordLogo.svg",
-            name: "Disord Logo"
+            name: "Disord Logo",
+            className: "border-0 shadow-none"
         },
         links: ["https://github.com/PPadilla44/Discord-Clone"],
         techs: ["bxl:mongodb", "simple-icons:express", "mdi:react", "mdi:nodejs", "cib:socket-io", "cib:javascript"],

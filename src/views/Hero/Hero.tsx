@@ -5,6 +5,7 @@ const Hero = () => {
     return (
         <section className="w-full h-screen bg-hero bg-no-repeat bg-cover bg-bottom 
         lg:bg-cover xl:bg-[length:150%] lg:bg-hero-pos flex items-center justify-end lg:justify-center flex-col relative
+        overflow-hidden
         ">
 
             <div className='w-full h-[55%] lg:h-full lg:w-1/2 md:min-w-[680px] backdrop-blur-md absolute left-0 z-10' />
