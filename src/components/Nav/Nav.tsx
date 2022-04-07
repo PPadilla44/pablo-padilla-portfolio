@@ -19,7 +19,7 @@ const Nav = () => {
     }
 
     return (
-        <nav className={`${color && "bg-white shadow-lg top-0"} w-full h-20 fixed flex left-0 items-center justify-center px-3 md:px-5 z-50 transition-all duration-500`}>
+        <nav className={`${color && "bg-white shadow-lg top-0"} w-full h-16 fixed flex left-0 items-center justify-center px-3 md:px-5 z-50 transition-all duration-500`}>
             <div className='flex items-center justify-between w-full max-w-7xl'>
 
                 <div className='flex items-center'>
@@ -33,7 +33,7 @@ const Nav = () => {
 
                 </div>
 
-                <Button className={`bg-dom hover:bg-red-600 active:bg-red-800 text-xl hidden md:flex text-white transition-all ease-in-out`} text='Contact Me' />
+                <Button className={`bg-dom text-xl hidden md:flex transition-all ease-in-out`} text='Contact Me' />
 
                 <MenuButton opened={opened} setOpened={setOpened} />
 

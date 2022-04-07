@@ -7,9 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "burg": '#BB8378',
-        "dom": '#BD1616',
-        "secondary": '#ebebeb',
+        "dom": '#99B3D6',
+        "accent": '#00335F',
         "btn": "rgba(0, 0, 0, 0.5);",
         "darkish": "rgba(0, 0, 0, 0.1);"
       },

@@ -19,8 +19,7 @@ function App() {
         <Projects />
         <Skills />
 
-
-        <Section className="bg-gradient-to-b from-secondary to-white py-20">
+        <Section className="bg-white py-20">
           <h1 className='text-left text-black'>Experience</h1>
 
           {

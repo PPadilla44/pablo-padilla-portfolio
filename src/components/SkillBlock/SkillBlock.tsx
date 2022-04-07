@@ -25,7 +25,7 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller })
 
             <div className={`${smaller ? "w-64" : " w-72"}  flex flex-col relative items-center min-h-[132px] h-full justify-center`}>
 
-                <div className='text-dom z-10 absolute opacity-20  top-1/2 -translate-y-1/2'>
+                <div className='text-blue-300 z-10 absolute opacity-20  top-1/2 -translate-y-1/2'>
                     <Icon icon={icon} height="150" />
                 </div>
 
