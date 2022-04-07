@@ -26,8 +26,6 @@ const Hero = () => {
 
                     <HeroIcons />
 
-                    {/* <Button className='bg-dom text-white text-2xl' text='Contact Me' /> */}
-
                 </div>
 
 
