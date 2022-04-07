@@ -19,8 +19,8 @@ const Nav = () => {
     }
 
     return (
-        <nav className={`${color && "bg-white shadow-lg top-0"} w-full h-16 fixed flex left-0 items-center justify-center px-3 md:px-5 z-50 transition-all duration-500`}>
-            <div className='flex items-center justify-between w-full max-w-7xl'>
+        <nav className={`${color && "bg-white shadow-lg top-0"} w-screen h-16 fixed flex left-0 items-center justify-center z-50 transition-colors duration-500`}>
+            <div className='flex items-center justify-between w-full max-w-7xl px-3  '>
 
                 <div className='flex items-center'>
 

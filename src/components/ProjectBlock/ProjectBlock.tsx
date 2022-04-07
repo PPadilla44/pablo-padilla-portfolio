@@ -20,8 +20,8 @@ export interface ProjectBlockProps {
 
 const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage, secondaryImage, description, links, techs, title }) => {
     return (
-        <div className={`${!reversed && `flex-row-reverse`}  w-full h-72 p-4 flex justify-between items-center`}>
-            <div className={`${!reversed && `items-end text-right`}  flex flex-col items-start justify-center gap-3 max-w-3xl`}>
+        <div className={`${!reversed && `md:flex-row-reverse`} flex-col md:flex-row w-full h-full md:h-72 flex gap-6 justify-between items-center `}>
+            <div className={`${!reversed && `md:items-end md:text-right`} flex flex-col md:items-start md:text-left items-center text-center justify-center gap-3 max-w-3xl`}>
                 <h2>{title}</h2>
                 <p>
                     {description}
@@ -47,7 +47,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
                 </div>
             </div>
 
-            <div className='w-80 min-w-[320px] h-full flex items-center justify-center relative'>
+            <div className='w-80 min-w-[320px] h-52 md:h-72 flex items-center justify-center relative'>
                 <img src={mainImage.path} alt={mainImage.name} className={`${mainImage.className} object-cover h-full rounded-xl shadow-md`} />
                 { secondaryImage && <img src={secondaryImage.path} alt={secondaryImage.name} className={`${secondaryImage.className} max-h-5/6 w-28 rounded-xl absolute -right-3 bottom-0 drop-shadow-md`} /> }
             </div>

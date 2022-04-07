@@ -20,7 +20,7 @@ function App() {
         <Skills />
 
         <Section className="bg-white py-20">
-          <h1 className='text-left text-black'>Experience</h1>
+          <h1 className='text-center pb-20 md:text-left text-black'>Experience</h1>
 
           {
             ExperienceData.map((p, i) => (
