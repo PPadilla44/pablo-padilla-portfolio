@@ -9,7 +9,7 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         links: ["https://github.com/PPadilla44/WhatAreTheOdds", "https://apps.apple.com/us/app/what-are-the-odds/id1615466936"],
         techs: ["mdi:react", "cib:typescript", "mdi:babel", "mdi:apple", "file-icons:jest", "cib:expo"],
-        description: "Developed Java web application using the Spring Boot framework for ease of dependency management. Developed Java web application using the Spring Boot framework for ease of dependency management."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis viverra amet, pharetra, morbi malesuada eros. Ut quis varius sapien, vivamus in eget montes. Orci ut quam gravida sed viverra enim nulla ornare."
     },
     {
         title: "Draw It",
@@ -23,7 +23,7 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         links: ["https://github.com/PPadilla44/draw_something", "http://3.128.205.160"],
         techs: ["cib:python", "cib:flask", "simple-icons:jinja", "fontisto:mysql", "cib:javascript", "simple-icons:bootstrap"],
-        description: "Saved and manipulated data using MYSQL for its data security and easily created relationships between users and their creations.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada et in pharetra fringilla mauris bibendum. Id leo diam et sed lectus aliquet. Nulla mi neque, dictum donec erat nec interdum vitae quis.",
         reversed: true
     },
     {
@@ -40,7 +40,7 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         links: ["https://github.com/PPadilla44/Discord-Clone"],
         techs: ["bxl:mongodb", "simple-icons:express", "mdi:react", "mdi:nodejs", "cib:socket-io", "cib:javascript"],
-        description: "Led a team to develop a clone of Discord using Nodejs back-end framework and React front-end framework for a responsive one-page web application"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis congue id arcu consectetur scelerisque cras. Pellentesque sed viverra orci quis id. Odio integer viverra scelerisque odio massa varius diam volutpat."
     },
 
 ]

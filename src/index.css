@@ -12,7 +12,7 @@
         @apply text-6xl md:text-7xl font-semibold
     }
     h2 {
-        @apply text-3xl md:text-3xl font-normal
+        @apply text-3xl font-normal
     }
     h3 {
         @apply text-xl md:text-2xl font-light
