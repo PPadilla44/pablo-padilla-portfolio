@@ -100,7 +100,7 @@ const Contact = () => {
                         }
                     </div>
                     <div className='w-full'>
-                        <textarea className={`${errors.nameErr && "border-2 border-red-600"}  w-full rounded-md p-2 text-lg resize-none`} rows={4} name="message" value={form.message} placeholder="Message" onChange={handleChange} />
+                        <textarea className={`${errors.messageErr && "border-2 border-red-600"}  w-full rounded-md p-2 text-lg resize-none`} rows={4} name="message" value={form.message} placeholder="Message" onChange={handleChange} />
                         {
                             errors.messageErr ?
                                 <p className="text-red-600 text-sm text-center" >{errors.messageErr}</p>
