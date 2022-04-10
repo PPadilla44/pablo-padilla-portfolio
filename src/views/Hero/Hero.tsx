@@ -17,7 +17,7 @@ const Hero = () => {
 
                     <div className="flex flex-col items-center lg:items-start pt-5 lg:p-0">
                         <h1 className="whitespace-nowrap">Pablo Padilla</h1>
-                        <h2 className="whitespace-nowrap">Full-Stack Engineer</h2>
+                        <h3 className="whitespace-nowrap">Full-Stack Engineer</h3>
                     </div>
 
                     <p>

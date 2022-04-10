@@ -33,7 +33,7 @@ const Nav = () => {
 
                 </div>
 
-                <Button className={`text-xl hidden md:flex transition-all ease-in-out`} text='Contact Me' />
+                <Button className={`hidden md:flex transition-all ease-in-out text-xl font-normal`} text='Contact Me' />
 
                 <MenuButton opened={opened} setOpened={setOpened} />
 

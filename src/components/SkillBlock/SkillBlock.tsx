@@ -19,7 +19,7 @@ export interface SkillBlockProps {
 const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller }) => {
 
     return (
-        <div className={`w-fit flex items-center gap-4 justify-center flex-col text-center min-h-[232px] h-full `}>
+        <div className={`max-w-xs w-full xl:w-fit  flex items-center gap-4 justify-center flex-col text-center min-h-[232px] h-full `}>
 
             <h2 className='text-white z-20 justify-self-start whitespace-nowrap'>{title}</h2>
 

@@ -10,7 +10,7 @@ export interface ExperienceBlockProps {
 
 const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, descriptions, location, duration, image }) => {
     return (
-        <div className='w-full h-fit flex flex-col-reverse md:flex-row justify-between items-center gap-2'>
+        <div className='w-full h-fit flex flex-col md:flex-row justify-between items-center gap-6'>
 
 
             <div className='bg-blue-300 border-2 border-accent shadow-md w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex items-center justify-center'>

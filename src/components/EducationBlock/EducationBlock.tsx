@@ -10,7 +10,7 @@ export interface EducationBlockProps {
 
 const EducationBlock: React.FC<EducationBlockProps> = ({ title, descriptions, location, duration, image }) => {
     return (
-        <div className='w-full h-fit flex flex-col-reverse md:flex-row justify-between items-center gap-2'>
+        <div className='w-full h-fit flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
 
             <div className='max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left'>
                 <h2>{title}</h2>
