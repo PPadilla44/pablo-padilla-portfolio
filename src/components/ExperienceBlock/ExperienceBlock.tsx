@@ -13,7 +13,7 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, descriptions, 
         <div className='w-full h-fit flex flex-col-reverse md:flex-row justify-between items-center gap-2'>
 
 
-            <div className='bg-blue-300 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex items-center justify-center'>
+            <div className='bg-blue-300 border-2 border-accent shadow-md w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex items-center justify-center'>
                 <img
                     src={image}
                     alt={title} />

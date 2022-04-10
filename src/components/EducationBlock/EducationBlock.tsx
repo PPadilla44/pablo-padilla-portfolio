@@ -25,10 +25,11 @@ const EducationBlock: React.FC<EducationBlockProps> = ({ title, descriptions, lo
                 </div>
             </div>
 
-            <div className='bg-blue-300 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex items-center justify-center'>
+            <div className='bg-blue-300 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg border-2 border-accent shadow-md flex items-center justify-center'>
                 <img
                     src={image}
-                    alt={title} />
+                    alt={title}
+                    />
             </div>
         </div>
     )
