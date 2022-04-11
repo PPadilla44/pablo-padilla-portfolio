@@ -10,7 +10,7 @@ export interface EducationBlockProps {
 
 const EducationBlock: React.FC<EducationBlockProps> = ({ title, descriptions, location, duration, image }) => {
     return (
-        <div className='w-full h-fit flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
+        <div className='w-full h-full flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
 
             <div className='max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left'>
                 <h2>{title}</h2>
@@ -20,17 +20,19 @@ const EducationBlock: React.FC<EducationBlockProps> = ({ title, descriptions, lo
                     ))
                 }
                 <div className='flex gap-5'>
-                    <p>{location}</p>
-                    <p>{duration}</p>
+                    <p className='text-lg'>{location}</p>
+                    <p className='text-lg'>{duration}</p>
                 </div>
             </div>
 
-            <div className='bg-blue-300 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg border-2 border-accent shadow-md flex items-center justify-center'>
+
+            <div className='bg-blue-200 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg border-2 border-accent shadow-md flex items-center justify-center'>
                 <img
                     src={image}
                     alt={title}
-                    />
+                />
             </div>
+
         </div>
     )
 }

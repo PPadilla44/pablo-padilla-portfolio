@@ -1,24 +1,22 @@
-import { EducationBlockProps } from "../components/EducationBlock/EducationBlock";
+import { ExperienceBlockProps } from "../components/ExperienceBlock/ExperienceBlock";
 
 
-export const ExperienceData: EducationBlockProps[] = [
+export const ExperienceData: ExperienceBlockProps[] = [
     {
-        title: "Coding Dojo",
-        descriptions: [
-            "Immersive / Intensive 80 hours per week Full-Stack Training Program in Python, Java, and MERN",
-        ],
+        title: "Teaching Assistant",
+        subTitle: "Coding Dojo",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est nulla ut velit interdum consectetur dignissim molestie. Non at elit nulla mi porttitor enim aliquam.",
         location: "Remote",
-        duration: "April 2021 - August 2021",
-        image: "/images/dojo.png"
+        duration: "September 2021 - Current",
+        image: "/images/dojo.png",
     },
     {
-        title: "Skyline College",
-        descriptions: [
-            "A.A. Psychology 2020",
-            "A.A. Social & Behavioral Sciences 2020"
-        ],
-        location: "San Bruno, CA",
-        duration: "August 2016 - August 2021",
-        image: "/images/skyline.png"
-    }
+        title: "Full-Stack Engineer",
+        subTitle: "Fast Way Hydroponics",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel est nulla ut velit interdum consectetur dignissim molestie. Non at elit nulla mi porttitor enim aliquam.",
+        location: "Remote",
+        duration: "Feburary 2021 - Current",
+        image: "/images/fastway.png",
+        textAsImage: ["Fast Way", "Hydroponics"]
+    },
 ]

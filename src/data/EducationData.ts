@@ -1,7 +1,7 @@
 import { EducationBlockProps } from "../components/EducationBlock/EducationBlock";
 
 
-export const ExperienceData: EducationBlockProps[] = [
+export const EducationData: EducationBlockProps[] = [
     {
         title: "Coding Dojo",
         descriptions: [
