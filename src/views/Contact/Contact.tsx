@@ -3,6 +3,7 @@ import Section from '../../components/Section'
 import { send } from 'emailjs-com';
 import SendButton from '../../components/SendButton';
 import HeroIcons from '../../components/HeroIcons';
+import ToolTip from '../../components/ToolTip';
 
 const Contact = () => {
 
@@ -66,6 +67,11 @@ const Contact = () => {
 
         send("service_hfz1snb", 'template_j8pik3h', form, process.env.REACT_APP_EMAIL_USERID)
             .then((result) => {
+                setForm({
+                    user_name: "",
+                    user_email: "",
+                    message: ""
+                })
                 setSuccess(true);
                 setLoading(false);
             }, (error) => {
@@ -115,7 +121,9 @@ const Contact = () => {
             </div>
             <div className='flex flex-col gap-2 items-center mt-20'>
                 <HeroIcons />
-                <a className='hover:text-accent' href='mailto:Padilla.Pablo1998@gmail.com'>Padilla.Pablo1998@gmail.com</a>
+                <ToolTip tooltipText='Click To Copy'>
+                    <p onClick={() => { navigator.clipboard.writeText("Padilla.Pablo1998@gmail.com") }} className='active:text-blue-600 hover:text-accent'>Padilla.Pablo1998@gmail.com</p>
+                </ToolTip>
             </div>
 
         </Section>
