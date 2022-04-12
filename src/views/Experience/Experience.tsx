@@ -5,7 +5,7 @@ import { ExperienceData } from '../../data/ExperienceData'
 
 const Experience = () => {
     return (
-        <Section className='gap-44 flex py-20 bg-white'>
+        <Section name='experience' className='gap-44 flex py-20 bg-white'>
             <h1 className='text-center md:text-right text-black mb-20'>Experience</h1>
 
             <div className='flex gap-28 flex-col'>

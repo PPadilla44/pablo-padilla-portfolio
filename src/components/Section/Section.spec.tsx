@@ -10,7 +10,7 @@ describe('<Section />', () => {
 
         beforeEach(() => {
             wrapper = shallow(
-                <Section>
+                <Section name="test">
                     <h1>Testing</h1>
                 </Section>
 

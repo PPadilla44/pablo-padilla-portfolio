@@ -81,7 +81,7 @@ const Contact = () => {
     }
 
     return (
-        <Section className='pt-20 pb-6 flex bg-blue-300' >
+        <Section name='contact' className='pt-20 pb-6 flex bg-blue-300' >
             <h1 className='text-center mb-20'>Contact</h1>
             <div className='flex items-center justify-center w-full flex-col '>
 

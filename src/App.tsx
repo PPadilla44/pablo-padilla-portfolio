@@ -13,15 +13,13 @@ function App() {
   return (
     <>
       <Nav />
+      
       <Hero />
-
-      <main className="bg-white flex flex-col">
-        <Projects />
-        <Skills />
-        <Education />
-        <Experience />
-        <Contact />
-      </main>
+      <Projects />
+      <Skills />
+      <Education />
+      <Experience />
+      <Contact />
 
     </>
   );

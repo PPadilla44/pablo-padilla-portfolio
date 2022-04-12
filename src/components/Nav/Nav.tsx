@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { NavData } from '../../data/NavData';
+import { Link } from 'react-scroll';
 import Button from '../Button'
 import MenuButton from '../MenuButton';
 import NavMenu from '../NavMenu';
@@ -25,15 +27,26 @@ const Nav = () => {
                 <div className='flex items-center'>
 
                     <div className={` ${color ? "text-black" : "text-white"} hidden md:flex items-center gap-12`}>
-                        <a href='/'>About Me</a>
-                        <a href='/'>Skills</a>
-                        <a href='/'>Projects</a>
-                        <a href='/'>Education</a>
+                        {
+                            NavData.map((n, i) => (
+                                <Link
+                                    smooth={true}
+                                    offset={-50}
+                                    spy={true}
+                                    key={`nav-${i}`}
+                                    activeClass='font-normal underline-offset-4 underline'
+                                    className='cursor-pointer font-light text-lg '
+                                    to={n.link} >
+                                    <span>{n.title}</span>
+                                </Link>
+                            ))
+                        }
                     </div>
 
                 </div>
-
-                <Button className={`hidden md:flex transition-all ease-in-out text-xl font-light`} text='Contact Me' />
+                <Link smooth={true} to='contact' spy={true}>
+                    <Button className={`hidden md:flex transition-all ease-in-out text-xl font-light`} text='Contact Me' />
+                </Link>
 
                 <MenuButton opened={opened} setOpened={setOpened} />
 
