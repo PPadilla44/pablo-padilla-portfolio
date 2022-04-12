@@ -23,7 +23,7 @@ const NavMenu: React.FC<Props> = ({ opened, close }) => {
                                 spy={true}
                                 key={`navMenu-${i}`}
                                 activeClass='font-normal underline-offset-4 underline'
-                                className='cursor-pointer font-light text-4xl '
+                                className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
                                 to={n.link} >
                                 <span>{n.title}</span>
                             </Link>

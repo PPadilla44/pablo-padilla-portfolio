@@ -90,7 +90,7 @@ const Contact = () => {
                         <input className={`${errors.nameErr && "border-2 border-red-600"}  w-full rounded-md p-2 text-lg`} type="text" name="user_name" placeholder='Name' value={form.user_name} onChange={handleChange} />
                         {
                             errors.nameErr ?
-                                <p className="text-red-600 text-sm text-center">{errors.nameErr}</p>
+                                <p className="text-red-600 text-sm text-center font-normal">{errors.nameErr}</p>
                                 :
                                 <p>&nbsp;</p>
                         }
@@ -99,7 +99,7 @@ const Contact = () => {
                         <input className={`${errors.emailErr && "border-2 border-red-600"}  w-full rounded-md p-2 text-lg`} type="email" name="user_email" placeholder='Email' value={form.user_email} onChange={handleChange} />
                         {
                             errors.emailErr ?
-                                <p className="text-red-600 text-sm text-center">{errors.emailErr}</p>
+                                <p className="text-red-600 text-sm text-center font-normal">{errors.emailErr}</p>
                                 :
                                 <p>&nbsp;</p>
                         }
@@ -108,7 +108,7 @@ const Contact = () => {
                         <textarea className={`${errors.messageErr && "border-2 border-red-600"}  w-full rounded-md p-2 text-lg resize-none`} rows={4} name="message" value={form.message} placeholder="Message" onChange={handleChange} />
                         {
                             errors.messageErr ?
-                                <p className="text-red-600 text-sm text-center" >{errors.messageErr}</p>
+                                <p className="text-red-600 text-sm text-center font-normal" >{errors.messageErr}</p>
                                 :
                                 <p>&nbsp;</p>
                         }

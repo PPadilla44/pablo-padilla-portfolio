@@ -10,7 +10,7 @@ const SendButton: React.FC<SendButtonProps> = ({ isLoading, isSuccess }) => {
         <button className={`${isLoading && "bg-blue-800 pointer-events-none"}
         ${isSuccess && "bg-blue-500"}
         ${!isLoading && !isSuccess && "bg-accent hover:bg-accent/90 active:bg-blue-800"}
-        text-white w-40 rounded-md shadow-md text-lg font-medium mt-3 flex items-center justify-center gap-2`}>
+        text-white w-40 rounded-md shadow-md text-lg font-medium mt-3 flex items-center justify-center gap-2 active:translate-y-[2px]`}>
             {
                 isLoading &&
                 <>

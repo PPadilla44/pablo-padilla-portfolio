@@ -35,7 +35,7 @@ const Nav = () => {
                                     spy={true}
                                     key={`nav-${i}`}
                                     activeClass='font-normal underline-offset-4 underline'
-                                    className='cursor-pointer font-light text-lg '
+                                    className='cursor-pointer text-lg hover:font-normal active:translate-y-[2px]'
                                     to={n.link} >
                                     <span>{n.title}</span>
                                 </Link>
