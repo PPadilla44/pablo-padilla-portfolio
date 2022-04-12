@@ -7,9 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "60-light": '#E9E8E8',
-        "30-light": '#FFFFFF',
-        "10-light": '#BD1616',
+        "dom": '#99B3D6',
+        "accent": '#00335F',
         "btn": "rgba(0, 0, 0, 0.5);",
         "darkish": "rgba(0, 0, 0, 0.1);"
       },
@@ -17,7 +16,7 @@ module.exports = {
         "around": '0px 0px 10px 1px rgba(0, 0, 0, 0.5);'
       },
       backgroundImage: {
-        'hero': "url('/public/images/hero.png')",
+        'hero': "url('/public/images/hero.png')"
       },
       backgroundPosition: {
         'hero-pos': 'left 10% top 40%'
@@ -27,5 +26,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }

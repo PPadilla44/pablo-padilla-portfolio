@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
+import { NavData } from '../../data/NavData';
+import { Link } from 'react-scroll';
 import Button from '../Button'
-import Logo from '../Logo'
+import MenuButton from '../MenuButton';
+import NavMenu from '../NavMenu';
 
 const Nav = () => {
 
     const [color, setColor] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollHandler);
@@ -17,22 +21,38 @@ const Nav = () => {
     }
 
     return (
-        <nav className={`${color && "bg-30-light shadow-lg top-0"} w-full h-20 fixed flex left-0 items-center justify-between px-5 z-50 transition-all duration-500`}>
+        <nav className={`${color && "bg-white shadow-lg top-0"} w-screen h-16 fixed flex left-0 items-center justify-center z-50 transition-colors duration-500`}>
+            <div className='flex items-center justify-between w-full max-w-7xl px-3  '>
 
-            <div className='flex items-center'>
+                <div className='flex items-center'>
 
-                <Logo className='w-14 h-14 text-6xl font-bold' />
+                    <div className={` ${color ? "text-black" : "text-white"} hidden md:flex items-center gap-12`}>
+                        {
+                            NavData.map((n, i) => (
+                                <Link
+                                    smooth={true}
+                                    offset={-50}
+                                    spy={true}
+                                    key={`nav-${i}`}
+                                    activeClass='font-normal underline-offset-4 underline'
+                                    className='cursor-pointer text-lg hover:font-normal active:translate-y-[2px]'
+                                    to={n.link} >
+                                    <span>{n.title}</span>
+                                </Link>
+                            ))
+                        }
+                    </div>
 
-                <div className={` ${color ? "text-black" : "text-60-light"} flex items-center ml-14 gap-12 font-light text-xl`}>
-                    <a href='/'>About Me</a>
-                    <a href='/'>Skills</a>
-                    <a href='/'>Projects</a>
-                    <a href='/'>Education</a>
                 </div>
+                <Link smooth={true} to='contact' spy={true}>
+                    <Button className={`hidden md:flex transition-all ease-in-out text-xl font-light`} text='Contact Me' />
+                </Link>
+
+                <MenuButton opened={opened} setOpened={setOpened} />
+
+                <NavMenu opened={opened} close={() => setOpened(false)} />
 
             </div>
-
-            <Button className={` ${color ? "bg-10-light" : "text-60-light border-2 border-60-light"} text-xl text-30-light hover:bg-10-light hover:border-0`} text='Contact Me' />
 
         </nav>
     )

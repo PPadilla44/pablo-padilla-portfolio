@@ -8,4 +8,25 @@
     html {
         @apply font-spartan
     }
+    h1 {
+        @apply text-6xl md:text-7xl font-semibold
+    }
+    h2 {
+        @apply text-4xl font-normal
+    }
+    h3 {
+        @apply text-3xl font-normal
+    }
+    h4 {
+        @apply text-lg md:text-xl font-extralight
+    }
+    h5 {
+        @apply text-base md:text-lg font-extralight
+    }
+    p {
+        @apply text-xl font-light
+    }
+    a {
+        @apply font-light text-lg
+    }
 }

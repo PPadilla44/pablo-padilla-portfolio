@@ -1,12 +1,11 @@
 import { ShallowWrapper, shallow } from "enzyme";
-import Logo from "./Logo"
-
-describe('<Logo />', () => {
+import NavMenu from "./NavMenu";
+describe('<NavMenu />', () => {
 
     let wrapper: ShallowWrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<Logo className="w-14 h-14 text-6xl font-bold" />);
+        wrapper = shallow(<NavMenu close={() => {}} opened={false} />);
     })
 
     it('should render correctly', () => {

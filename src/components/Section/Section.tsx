@@ -1,18 +1,21 @@
 import React from 'react'
+import { Element } from 'react-scroll';
 
-const Section: React.FC = ({ children }) => {
+interface Props {
+    className?: string;
+    contained?: boolean;
+    name: string;
+}
+
+const Section: React.FC<Props> = ({ children, className, contained = true, name }) => {
     return (
-        <section className="flex items-center justify-center">
-            <div className="max-w-7xl w-full ">
-
-                <div className="shadow-around w-80 h-80 ">
-
-                    <h1 className="text-8xl font-bold">MORE TEXT HERE</h1>
+        <Element name={name}>
+            <section className={`${className} flex items-center justify-center `}>
+                <div className={`${contained && `max-w-7xl`} px-3 w-full `}>
+                    {children}
                 </div>
-                {children}
-
-            </div>
-        </section>
+            </section>
+        </Element>
     )
 }
 

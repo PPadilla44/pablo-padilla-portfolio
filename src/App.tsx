@@ -1,37 +1,25 @@
-import Hero from "./components/Hero";
+import Hero from "./views/Hero";
 import Nav from "./components/Nav";
-import Section from "./components/Section";
+import Skills from "./views/Skills";
+import Projects from "./views/Projects";
+import Education from "./views/Education";
+import Experience from "./views/Experience";
+import Contact from "./views/Contact";
 
 
 function App() {
 
 
-
   return (
     <>
       <Nav />
-
+      
       <Hero />
-
-      <main className="bg-60-light gap-9 flex flex-col">
-
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        <Section>
-          <h1>Elemenmt</h1>
-        </Section>
-        
-      </main>
+      <Projects />
+      <Skills />
+      <Education />
+      <Experience />
+      <Contact />
 
     </>
   );
