@@ -50,7 +50,7 @@ const Nav = () => {
 
                 <MenuButton opened={opened} setOpened={setOpened} />
 
-                <NavMenu opened={opened} />
+                <NavMenu opened={opened} close={() => setOpened(false)} />
 
             </div>
 

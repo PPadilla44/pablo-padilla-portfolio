@@ -5,7 +5,7 @@ describe('<NavMenu />', () => {
     let wrapper: ShallowWrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<NavMenu opened={false} />);
+        wrapper = shallow(<NavMenu close={() => {}} opened={false} />);
     })
 
     it('should render correctly', () => {
