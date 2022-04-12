@@ -9,12 +9,12 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         links: ["https://github.com/PPadilla44/WhatAreTheOdds", "https://apps.apple.com/us/app/what-are-the-odds/id1615466936"],
         techs: ["mdi:react", "cib:typescript", "mdi:babel", "mdi:apple", "file-icons:jest", "cib:expo"],
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis viverra amet, pharetra, morbi malesuada eros. Ut quis varius sapien, vivamus in eget montes. Orci ut quam gravida sed viverra enim nulla ornare."
+        description: `Do you ever wonder about your odds of winning the lottery, getting heads in a coin flip, or catching a home run? With this app, You can set your own odds and continuously click a button until you hit those odds.`
     },
     {
         title: "Draw It",
         mainImage: {
-            path:"/images/drawDashDesk.png",
+            path: "/images/drawDashDesk.png",
             name: "Draw It Desktop"
         },
         secondaryImage: {
@@ -23,7 +23,8 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         links: ["https://github.com/PPadilla44/draw_something", "http://3.128.205.160"],
         techs: ["cib:python", "cib:flask", "simple-icons:jinja", "fontisto:mysql", "cib:javascript", "simple-icons:bootstrap"],
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada et in pharetra fringilla mauris bibendum. Id leo diam et sed lectus aliquet. Nulla mi neque, dictum donec erat nec interdum vitae quis.",
+        description: `Play with your friends by drawing a word you select and see if they can guess it! If they guess it correctly,
+            you both get points! This web application was built with Python using the Flask framework focused on engineering drawing functionality in Javascript without libraries.`,
         reversed: true
     },
     {
@@ -40,7 +41,8 @@ export const ProjectData: ProjectBlockProps[] = [
         },
         links: ["https://github.com/PPadilla44/Discord-Clone"],
         techs: ["bxl:mongodb", "simple-icons:express", "mdi:react", "mdi:nodejs", "cib:socket-io", "cib:javascript"],
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis congue id arcu consectetur scelerisque cras. Pellentesque sed viverra orci quis id. Odio integer viverra scelerisque odio massa varius diam volutpat."
+        description: `Clone of Discord's messaging interface and services. You can create an account, add friends, and instant message them. 
+        Collab with a group of people using the group chat feature. And get notified instantly with the use of the Socket io library in React.`
     },
 
 ]

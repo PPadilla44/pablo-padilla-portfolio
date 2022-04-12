@@ -5,7 +5,7 @@ export const EducationData: EducationBlockProps[] = [
     {
         title: "Coding Dojo",
         descriptions: [
-            "Immersive / Intensive 80 hours per week Full-Stack Training Program in Python, Java, and MERN",
+            "Immersive 80 hours per week for 14 weeks training program focused on full-stack development in Python, Java, and MERN"
         ],
         location: "Remote",
         duration: "April 2021 - August 2021",

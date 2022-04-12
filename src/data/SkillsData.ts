@@ -11,10 +11,8 @@ export const SkillsData: SkillBlockProps[] = [
             { icon: "logos:tailwindcss-icon", name: "Tail Wind" },
             { icon: "logos:jest", name: "Jest" },
             { icon: "vscode-icons:file-type-light-next", name: "Next js" },
-            // { icon: "akar-icons:bootstrap-fill", name: "Boot Strap", color: "7611F7" },
             { icon: "logos:spring-icon", name: "Spring Boot" },
             { icon: "bxl:flask", name: "Flask" },
-            // { icon: "file-icons:jinja", name: "Jinja2" },
             { icon: "logos:nodejs", name: "Nodejs" },
         ]
     },

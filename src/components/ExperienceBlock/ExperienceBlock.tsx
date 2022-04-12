@@ -26,7 +26,7 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, desc
                                 alt={title}
                                 className="w-40 h-40 md:w-52 md:h-52"
                             />
-                            <span className='text-4xl font-bold text-black'>{textAsImage[0]}</span>
+                            <span className='text-4xl font-semibold text-black'>{textAsImage[0]}</span>
                         </>
                         :
                         <img

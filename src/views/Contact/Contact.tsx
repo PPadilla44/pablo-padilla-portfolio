@@ -3,7 +3,6 @@ import Section from '../../components/Section'
 import { send } from 'emailjs-com';
 import SendButton from '../../components/SendButton';
 import HeroIcons from '../../components/HeroIcons';
-import ToolTip from '../../components/ToolTip';
 
 const Contact = () => {
 

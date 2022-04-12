@@ -29,7 +29,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
                 reversed={reversed}
             />
 
-            <div className={`flex flex-col md:items-start md:text-left items-center text-center justify-center gap-3 max-w-3xl`}>
+            <div className={`flex flex-col md:items-start md:text-left items-center text-center justify-center gap-3 max-w-md md:max-w-3xl`}>
                 <h2>{title}</h2>
                 <p>
                     {description}
