@@ -21,8 +21,14 @@ export interface ProjectBlockProps {
 
 const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage, secondaryImage, description, links, techs, title }) => {
     return (
-        <div className={`${!reversed && `md:flex-row-reverse`} flex-col-reverse md:flex-row w-full h-full md:h-72 flex gap-6 justify-between items-center `}>
-            
+        <div className={`${!reversed && `md:flex-row-reverse`} flex-col md:flex-row w-full h-full md:h-72 flex gap-6 justify-between items-center `}>
+
+            <ProjectImages
+                mainImage={mainImage}
+                secondaryImage={secondaryImage}
+                reversed={reversed}
+            />
+
             <div className={`flex flex-col md:items-start md:text-left items-center text-center justify-center gap-3 max-w-3xl`}>
                 <h2>{title}</h2>
                 <p>
@@ -49,12 +55,6 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
                 </div>
             </div>
 
-
-            <ProjectImages
-                mainImage={mainImage}
-                secondaryImage={secondaryImage}
-                reversed={reversed}
-            />
 
         </div>
     )

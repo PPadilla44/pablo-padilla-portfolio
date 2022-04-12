@@ -121,9 +121,7 @@ const Contact = () => {
             </div>
             <div className='flex flex-col gap-2 items-center mt-20'>
                 <HeroIcons />
-                <ToolTip tooltipText='Click To Copy'>
-                    <p onClick={() => { navigator.clipboard.writeText("Padilla.Pablo1998@gmail.com") }} className='active:text-blue-600 hover:text-accent'>Padilla.Pablo1998@gmail.com</p>
-                </ToolTip>
+                <p onClick={() => { navigator.clipboard.writeText("Padilla.Pablo1998@gmail.com") }} className='active:text-blue-600 hover:text-accent'>Padilla.Pablo1998@gmail.com</p>
             </div>
 
         </Section>
