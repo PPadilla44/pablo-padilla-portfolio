@@ -31,6 +31,7 @@ const Nav = () => {
                         {
                             NavData.map((n, i) => (
                                 <motion.li
+                                    key={`nav-${i}`}
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -38,7 +39,6 @@ const Nav = () => {
                                         smooth={true}
                                         offset={-50}
                                         spy={true}
-                                        key={`nav-${i}`}
                                         activeClass='font-normal underline-offset-4 underline'
                                         className='cursor-pointer text-lg hover:font-normal active:translate-y-[2px]'
                                         to={n.link} >

@@ -1,9 +1,6 @@
 {
   "short_name": "Pablo Padilla",
   "name": "Pablo Padilla | Full-Stack Developer Portfolio",
-  "icons": [
-  
-  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

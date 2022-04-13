@@ -69,14 +69,14 @@ const NavMenu: React.FC<Props> = ({ opened, toggle }) => {
                                 variants={textVariants}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
+                                key={`navMenu-${i}`}
                             >
 
                                 <Link
                                     onClick={toggle}
                                     smooth={true}
-                                    offset={n.link !== "about" ? -50: 0}
+                                    offset={n.link !== "about" ? -50 : 0}
                                     spy={true}
-                                    key={`navMenu-${i}`}
                                     activeClass='font-normal underline-offset-4 underline'
                                     className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
                                     to={n.link} >
