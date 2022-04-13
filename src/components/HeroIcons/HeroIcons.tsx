@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react'
+import { motion } from 'framer-motion'
 
 const HeroIcons = () => {
 
@@ -9,16 +10,22 @@ const HeroIcons = () => {
     ]
 
     return (
-        <div className='flex gap-3'>
+        <ul className='flex gap-3'>
             {
                 data.map((d, i) => (
-                    <a href={d.link} target="_blank" rel="noreferrer" key={`${d.icon}-${i}`} className='active:translate-y-[2px] cursor-pointer rounded-lg w-12 h-12 flex items-center justify-center hover:bg-blue-400/80 active:bg-blue-400  transition-all ease-in-out'>
-                        <Icon icon={d.icon} width={40} height={40} />
-                    </a>
+                    <motion.li
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+
+                        <a href={d.link} target="_blank" rel="noreferrer" key={`${d.icon}-${i}`} className=' cursor-pointer rounded-lg w-12 h-12 flex items-center justify-center hover:bg-blue-400/80 active:bg-blue-400  transition-all ease-in-out'>
+                            <Icon icon={d.icon} width={40} height={40} />
+                        </a>
+                    </motion.li>
                 ))
             }
 
-        </div>
+        </ul>
     )
 }
 

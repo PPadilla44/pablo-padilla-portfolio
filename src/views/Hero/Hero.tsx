@@ -1,7 +1,21 @@
+import { motion, Variants } from "framer-motion"
 import { Element } from "react-scroll"
 import HeroIcons from "../../components/HeroIcons"
 
 const Hero = () => {
+
+    const heroVariants: Variants = {
+        offscreen: {
+            x: "-100%"
+        },
+        onscreen: {
+            x: "0%",
+            transition: {
+                type: "spring",
+                bounce: 0.2,
+            }
+        }
+    };
 
     return (
         <Element name="about">
@@ -16,7 +30,12 @@ const Hero = () => {
                 <div className="px-3 md:max-w-7xl w-full flex z-20 items-start text-center lg:text-left lg:items-center xl:h-3/4 justify-center lg:justify-start h-[55%]">
 
 
-                    <div className="md:max-w-xl w-full text-white flex flex-col gap-5 items-center justify-center lg:items-start">
+                    <motion.div
+                        variants={heroVariants}
+                        initial={"offscreen"}
+                        whileInView="onscreen"
+                        viewport={{ once: true }}
+                        className="md:max-w-xl w-full text-white flex flex-col gap-5 items-center justify-center lg:items-start">
 
                         <div className="flex flex-col items-center lg:items-start pt-5 lg:p-0">
                             <h1 className="whitespace-nowrap">Pablo Padilla</h1>
@@ -30,7 +49,7 @@ const Hero = () => {
 
                         <HeroIcons />
 
-                    </div>
+                    </motion.div>
 
 
                 </div>

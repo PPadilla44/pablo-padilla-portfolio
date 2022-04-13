@@ -7,7 +7,7 @@ describe('<MenuButton />', () => {
   const mockSet = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<MenuButton opened={false} setOpened={mockSet} />);
+    wrapper = shallow(<MenuButton toggle={() => {}}  />);
   })
 
   it('should render correctly', () => {

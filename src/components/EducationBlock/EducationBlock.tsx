@@ -1,3 +1,4 @@
+import { motion, Variants } from 'framer-motion';
 import React from 'react'
 
 export interface EducationBlockProps {
@@ -9,18 +10,45 @@ export interface EducationBlockProps {
 }
 
 const EducationBlock: React.FC<EducationBlockProps> = ({ title, descriptions, location, duration, image }) => {
+
+    const educationVariants: Variants = {
+        offscreenText: {
+            x: "-100%"
+        },
+        offscreenImg: {
+            x: "100%"
+        },
+        onscreen: {
+            x: "0%",
+            transition: {
+                type: "spring",
+                bounce: 0.2,
+            }
+        }
+    };
+
     return (
         <div className='w-full h-full flex flex-col md:flex-row-reverse justify-between items-center gap-6'>
 
-            <div className='bg-blue-200 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg border-2 border-accent shadow-md flex items-center justify-center'>
+            <motion.div
+                variants={educationVariants}
+                initial={"offscreenImg"}
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                className='bg-blue-200 w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg border-2 border-accent shadow-md flex items-center justify-center'>
                 <img
                     src={image}
                     alt={title}
                 />
-            </div>
-            
+            </motion.div>
 
-            <div className='max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left'>
+
+            <motion.div
+                variants={educationVariants}
+                initial={"offscreenText"}
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                className='max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left'>
                 <h2>{title}</h2>
                 {
                     descriptions.map((d, i) => (
@@ -31,7 +59,7 @@ const EducationBlock: React.FC<EducationBlockProps> = ({ title, descriptions, lo
                     <p className='text-lg'>{location}</p>
                     <p className='text-lg'>{duration}</p>
                 </div>
-            </div>
+            </motion.div>
 
 
         </div>
