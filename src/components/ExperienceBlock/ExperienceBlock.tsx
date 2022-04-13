@@ -1,3 +1,4 @@
+import { motion, Variants } from 'framer-motion';
 import React from 'react'
 
 export interface ExperienceBlockProps {
@@ -11,11 +12,33 @@ export interface ExperienceBlockProps {
 }
 
 const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, description, location, duration, image, textAsImage }) => {
+
+    const exVariants: Variants = {
+        offscreenText: {
+            x: "100%"
+        },
+        offscreenImg: {
+            x: "-100%"
+        },
+        onscreen: {
+            x: "0%",
+            transition: {
+                type: "spring",
+                bounce: 0.2,
+            }
+        }
+    };
+
     return (
         <div className='w-full h-full flex flex-col md:flex-row justify-between items-center gap-6'>
 
 
-            <div className='bg-blue-200 border-2 border-accent shadow-md w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex flex-col items-center justify-center'>
+            <motion.div
+                variants={exVariants}
+                initial={"offscreenImg"}
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                className='bg-blue-200 border-2 border-accent shadow-md w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex flex-col items-center justify-center'>
 
                 {
                     textAsImage
@@ -36,9 +59,14 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, desc
 
                 }
 
-            </div>
+            </motion.div>
 
-            <div className='w-full h-full max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left '>
+            <motion.div
+                variants={exVariants}
+                initial={"offscreenText"}
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                className='w-full h-full max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left '>
                 <h2>{title}</h2>
                 <p className='text-2xl'>{subTitle}</p>
                 <p>{description}</p>
@@ -46,7 +74,7 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, desc
                     <p className='text-lg'>{location}</p>
                     <p className='text-lg'>{duration}</p>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

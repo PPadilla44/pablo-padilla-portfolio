@@ -1,25 +1,46 @@
+import { motion, SVGMotionProps } from "framer-motion";
 import React from "react";
 
 interface Props {
-    opened: boolean;
-    setOpened: React.Dispatch<React.SetStateAction<boolean>>
+    toggle: () => void;
 }
 
-const MenuButton: React.FC<Props> = ({ opened, setOpened }) => {
+const Path = (props: JSX.IntrinsicAttributes & SVGMotionProps<SVGPathElement> & React.RefAttributes<SVGPathElement>) => (
+    <motion.path
+        strokeWidth="3"
+        stroke="black"
+        strokeLinecap="round"
+        {...props}
+    />
+);
+
+const MenuButton: React.FC<Props> = ({ toggle }) => {
 
     return (
-        <button onClick={() => setOpened(!opened)} className="flex md:hidden flex-col gap-2 w-8 h-8  items-end justify-center relative">
-
-            {/* MENU */}
-            <span className={`${opened ? "translate-y-3 opacity-0" : "-translate-y-3 delay-300"} w-8 h-1 bg-black rounded-full transition-all duration-300 ease-in absolute `} />
-            <span className={`${opened ? "translate-y-3 opacity-0" : "delay-300"} w-8 h-1  bg-black rounded-full transition-all duration-300 ease-in-out absolute`} />
-            <span className={`${opened ? "opacity-0" : "delay-300"} translate-y-3  w-5 h-1  bg-black rounded-full transition-all duration-300 ease-in-out absolute`} />
-
-            {/* CROSS */}
-            <span className={`${opened ? "rotate-45 -translate-y-0 delay-300" : "opacity-0 translate-y-3"} w-8  h-1  bg-black rounded-full transition- duration-300  ease-in-out absolute`} />
-            <span className={`${opened ? "-rotate-45 -translate-y-0 delay-300" : "opacity-0 translate-y-3"} w-8   h-1  bg-black rounded-full transition-all duration-300 ease-in-out absolute `} />
+        <button className="flex md:hidden w-8 h-8" onClick={toggle}>
+            <svg width="32" height="32" viewBox="0 0 21 21">
+                <Path
+                    variants={{
+                        closed: { d: "M 2 2.5 L 20 2.5" },
+                        open: { d: "M 3 16.5 L 17 2.5" }
+                    }}
+                />
+                <Path
+                    d="M 2 9.423 L 20 9.423"
+                    variants={{
+                        closed: { opacity: 1 },
+                        open: { opacity: 0 }
+                    }}
+                    transition={{ duration: 0.1 }}
+                />
+                <Path
+                    variants={{
+                        closed: { d: "M 2 16.346 L 20 16.346" },
+                        open: { d: "M 3 2.5 L 17 16.346" }
+                    }}
+                />
+            </svg>
         </button>
-
     )
 }
 

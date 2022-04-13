@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { motion, Variants } from "framer-motion";
 import React from 'react';
 import Button from '../Button';
 import ProjectImages from '../ProjectImages';
@@ -20,8 +21,31 @@ export interface ProjectBlockProps {
 }
 
 const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage, secondaryImage, description, links, techs, title }) => {
+
+    const projectVariants: Variants = {
+        offscreenR: {
+            x: "-100%"
+        },
+        offscreen: {
+            x: "100%"
+        },
+        onscreen: {
+            x: "0%",
+            transition: {
+                type: "spring",
+                bounce: 0.2,
+            }
+        }
+    };
+
     return (
-        <div className={`${!reversed && `md:flex-row-reverse`} flex-col md:flex-row w-full h-full md:h-72 flex gap-6 justify-between items-center `}>
+        <motion.div
+            className={`${!reversed && `md:flex-row-reverse`} flex-col md:flex-row w-full h-full md:h-72 flex gap-6 justify-between items-center `}
+            variants={projectVariants}
+            initial={reversed ? "offscreenR" : "offscreen"}
+            whileInView="onscreen"
+            viewport={{ once: true }}
+        >
 
             <ProjectImages
                 mainImage={mainImage}
@@ -56,7 +80,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
             </div>
 
 
-        </div>
+        </motion.div>
     )
 }
 

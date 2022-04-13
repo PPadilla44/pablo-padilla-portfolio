@@ -10,7 +10,7 @@ interface Props {
 const Section: React.FC<Props> = ({ children, className, contained = true, name }) => {
     return (
         <Element name={name}>
-            <section className={`${className} flex items-center justify-center `}>
+            <section className={`${className} overflow-hidden flex items-center justify-center `}>
                 <div className={`${contained && `max-w-7xl`} px-3 w-full `}>
                     {children}
                 </div>
