@@ -14,9 +14,8 @@ const NavMenu: React.FC<Props> = ({ opened, toggle }) => {
     const navVariants: Variants = {
         open: {
             y: 0,
-            transition: {
-                type: "spring",
-                bounce: 0.2,
+transition: {
+                duration: 1
             }
         },
         closed: {

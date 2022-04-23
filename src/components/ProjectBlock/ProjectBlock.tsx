@@ -24,16 +24,15 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
 
     const projectVariants: Variants = {
         offscreenR: {
-            x: "-100%"
+            opacity: 0
         },
         offscreen: {
-            x: "100%"
+            opacity: 0
         },
         onscreen: {
-            x: "0%",
-            transition: {
-                type: "spring",
-                bounce: 0.2,
+            opacity: 1,
+transition: {
+                duration: 1
             }
         }
     };
