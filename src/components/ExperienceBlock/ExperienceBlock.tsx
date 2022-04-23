@@ -15,16 +15,15 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, desc
 
     const exVariants: Variants = {
         offscreenText: {
-            x: "100%"
+            opacity: 0
         },
         offscreenImg: {
-            x: "-100%"
+            opacity: 0
         },
         onscreen: {
-            x: "0%",
-            transition: {
-                type: "spring",
-                bounce: 0.2,
+            opacity: 1,
+transition: {
+                duration: 1
             }
         }
     };

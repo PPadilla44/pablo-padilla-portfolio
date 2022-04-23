@@ -6,13 +6,12 @@ const Hero = () => {
 
     const heroVariants: Variants = {
         offscreen: {
-            x: "-100%"
+            opacity: 0
         },
         onscreen: {
-            x: "0%",
+            opacity: 1,
             transition: {
-                type: "spring",
-                bounce: 0.2,
+                duration: 1
             }
         }
     };
