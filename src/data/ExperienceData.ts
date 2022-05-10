@@ -17,7 +17,7 @@ export const ExperienceData: ExperienceBlockProps[] = [
         description: `Collaborated with a co-founder to deliver an internal web/mobile app. 
         And worked with a small team of software engineers and facilitated workloads while tackling full-stack duties.`,
         location: "Remote",
-        duration: "Feburary 2021 - Current",
+        duration: "Feburary 2021 - March 2022",
         image: "/images/fastway.png",
         textAsImage: ["Fast Way", "Hydroponics"]
     },
