@@ -16,10 +16,10 @@ module.exports = {
         "around": '0px 0px 10px 1px rgba(0, 0, 0, 0.5);'
       },
       backgroundImage: {
-        'hero': "url('/public/images/hero.png')"
+        'hero': "url('/public/images/hero.jpeg')"
       },
       backgroundPosition: {
-        'hero-pos': 'left 10% top 40%'
+        'hero-pos': 'left 50% top 35%'
       },
       fontFamily: {
         'spartan': ["League Spartan", "sans-serif"],
