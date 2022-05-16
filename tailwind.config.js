@@ -19,7 +19,7 @@ module.exports = {
         'hero': "url('/public/images/hero.png')"
       },
       backgroundPosition: {
-        'hero-pos': 'left 10% top 40%'
+        'hero-pos': 'left 50% top 35%'
       },
       fontFamily: {
         'spartan': ["League Spartan", "sans-serif"],
