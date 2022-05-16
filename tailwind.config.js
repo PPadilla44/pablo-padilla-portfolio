@@ -16,7 +16,7 @@ module.exports = {
         "around": '0px 0px 10px 1px rgba(0, 0, 0, 0.5);'
       },
       backgroundImage: {
-        'hero': "url('/public/images/hero.jpeg')"
+        'hero': "url('/public/images/hero.png')"
       },
       backgroundPosition: {
         'hero-pos': 'left 50% top 35%'
