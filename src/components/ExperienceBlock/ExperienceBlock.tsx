@@ -38,13 +38,14 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, desc
                 viewport={{ once: true }}
                 className='w-full h-full max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left '>
                 <h2>{title}</h2>
-                <h4 className=''>{subTitle}</h4>
+                <h4>{subTitle}</h4>
                 <p>{description}</p>
                 <div className='flex gap-5'>
                     <p className='text-lg font-light'>{location}</p>
                     <p className='text-lg font-light'>{duration}</p>
                 </div>
             </motion.div>
+            
             <motion.div
                 variants={exVariants}
                 initial={"offscreenImg"}

@@ -18,7 +18,7 @@
         @apply text-3xl font-normal
     }
     h4 {
-        @apply text-2xl font-light
+        @apply text-2xl font-normal
     }
     h5 {
         @apply text-base md:text-lg font-extralight
