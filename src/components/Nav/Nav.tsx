@@ -27,7 +27,7 @@ const Nav = () => {
 
                 <div className='flex items-center'>
 
-                    <ul className={` ${color ? "text-black" : "text-white"} text-black hidden md:flex items-center gap-12`}>
+                    <ul className={` ${color ? "text-black" : "text-white"}  hidden md:flex items-center gap-12`}>
                         {
                             NavData.map((n, i) => (
                                 <motion.li
@@ -41,8 +41,9 @@ const Nav = () => {
                                         spy={true}
                                         activeClass='font-normal underline-offset-4 underline'
                                         className='cursor-pointer text-lg hover:font-normal active:translate-y-[2px]'
+                                        tabIndex={1}
                                         to={n.link} >
-                                        <span>{n.title}</span>
+                                            <span>{n.title}</span>
                                     </Link>
                                 </motion.li>
                             ))

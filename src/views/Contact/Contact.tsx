@@ -82,7 +82,9 @@ const Contact = () => {
 
     return (
         <Section name='contact' className='pt-20 pb-6 flex bg-blue-300' >
-            <h1 className='text-center mb-20'>Contact</h1>
+            <button className='cursor-default w-full'>
+                <h1 className='text-center mb-20'>Contact</h1>
+            </button>
             <div className='flex items-center justify-center w-full flex-col '>
 
                 <form onSubmit={sendEmail} className="flex flex-col gap-1 md:max-w-lg w-full items-center" noValidate>

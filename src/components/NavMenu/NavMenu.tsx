@@ -78,7 +78,8 @@ const NavMenu: React.FC<Props> = ({ opened, toggle }) => {
                                     spy={true}
                                     activeClass='font-normal underline-offset-4 underline'
                                     className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
-                                    to={n.link} >
+                                    to={n.link} 
+                                    >
                                     <span>{n.title}</span>
                                 </Link>
                             </motion.li>
