@@ -18,8 +18,7 @@ const HeroIcons = () => {
                         whileTap={{ scale: 0.95 }}
                         key={`${d.icon}-${i}`}
                     >
-
-                        <a href={d.link} target="_blank" rel="noreferrer" className=' cursor-pointer rounded-lg w-12 h-12 flex items-center justify-center hover:bg-blue-400/80 active:bg-blue-400  transition-all ease-in-out'>
+                        <a href={d.link} target="_blank" rel="noreferrer" className=' cursor-pointer rounded-lg w-12 h-12 flex items-center justify-center transition-all ease-in-out'>
                             <Icon icon={d.icon} width={40} height={40} />
                         </a>
                     </motion.li>

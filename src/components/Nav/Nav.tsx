@@ -27,7 +27,7 @@ const Nav = () => {
 
                 <div className='flex items-center'>
 
-                    <ul className={` ${color ? "text-black" : "text-white"} hidden md:flex items-center gap-12`}>
+                    <ul className={` ${color ? "text-black" : "text-white"} text-black hidden md:flex items-center gap-12`}>
                         {
                             NavData.map((n, i) => (
                                 <motion.li
@@ -51,7 +51,7 @@ const Nav = () => {
 
                 </div>
                 <Link smooth={true} to='contact' spy={true}>
-                    <Button className={`hidden md:flex transition-all ease-in-out text-xl font-light`} text='Contact Me' />
+                    <Button className={`hidden md:flex transition-all ease-in-out text-xl`} text='Contact Me' />
                 </Link>
 
                 <MenuButton toggle={() => toggleOpen()} />
