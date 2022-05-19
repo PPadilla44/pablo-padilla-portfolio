@@ -12,9 +12,9 @@ const ToolTip: React.FC<ToolTipProps> = ({ children, tooltipText, callBack, clas
 
     return (
         <>
-            <button data-tip={tooltipText} type="button" className={className} >
+            <div data-tip={tooltipText} className={className} >
                 {children}
-            </button>
+            </div>
             <ReactTooltip place="top" type="dark" effect="solid" />
         </>
     );

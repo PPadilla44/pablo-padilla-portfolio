@@ -22,7 +22,7 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, subTitle, desc
         },
         onscreen: {
             opacity: 1,
-transition: {
+            transition: {
                 duration: 1
             }
         }
@@ -31,7 +31,21 @@ transition: {
     return (
         <div className='w-full h-full flex flex-col md:flex-row justify-between items-center gap-6'>
 
-
+            <motion.div
+                variants={exVariants}
+                initial={"offscreenText"}
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                className='w-full h-full max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left '>
+                <h2>{title}</h2>
+                <h4>{subTitle}</h4>
+                <p>{description}</p>
+                <div className='flex gap-5'>
+                    <p className='text-lg font-light'>{location}</p>
+                    <p className='text-lg font-light'>{duration}</p>
+                </div>
+            </motion.div>
+            
             <motion.div
                 variants={exVariants}
                 initial={"offscreenImg"}
@@ -60,20 +74,6 @@ transition: {
 
             </motion.div>
 
-            <motion.div
-                variants={exVariants}
-                initial={"offscreenText"}
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                className='w-full h-full max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left '>
-                <h2>{title}</h2>
-                <p className='text-2xl'>{subTitle}</p>
-                <p>{description}</p>
-                <div className='flex gap-5'>
-                    <p className='text-lg'>{location}</p>
-                    <p className='text-lg'>{duration}</p>
-                </div>
-            </motion.div>
         </div>
     )
 }

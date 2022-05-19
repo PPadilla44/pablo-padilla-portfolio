@@ -45,7 +45,8 @@ const Hero = () => {
             initial={"offscreen"}
             whileInView="onscreen"
             viewport={{ once: true }}
-            className="bg-hero bg-[length:150%] sm:bg-[length:125%]  lg:bg-[length:150%] bg-no-repeat shadow-md bg-hero-pos lg:bg-center min-h-[300px] h-full lg:h-full w-full lg:max-w-xl lg:rounded-md" />
+            className="bg-hero bg-[length:150%] sm:bg-[length:125%]  lg:bg-[length:150%] bg-no-repeat shadow-md shadow-white/5 bg-hero-pos lg:bg-center min-h-[300px] h-full lg:h-full w-full lg:max-w-xl lg:rounded-md"
+          />
         </div>
       </section>
     </Element>

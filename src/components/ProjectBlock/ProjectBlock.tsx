@@ -31,7 +31,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ reversed = false, mainImage
         },
         onscreen: {
             opacity: 1,
-transition: {
+            transition: {
                 duration: 1
             }
         }
@@ -64,17 +64,18 @@ transition: {
                         ))
                     }
                 </ul>
-                <div className='flex gap-2'>
-                    <a href={links[0]} target="_blank" rel="noreferrer">
-                        <Button text='View Github Repo' className='text-black text-xl font-light' />
-                    </a>
+                <div className='flex gap-3 items-center'>
                     {
                         links.length > 1
                         &&
                         <a href={links[1]} target="_blank" rel="noreferrer">
-                            <Button text='View Application' className='text-black text-xl font-light' />
+                            <Button text='View Application' className='text-black text-xl' />
                         </a>
                     }
+                    <a href={links[0]} target="_blank" rel="noreferrer">
+                        <p className='text-accent hover:text-black active:text-accent/80 font-light'>View Github Repo</p>
+                        {/* <Button text='View Github Repo' className='text-black text-xl font-light' /> */}
+                    </a>
                 </div>
             </div>
 

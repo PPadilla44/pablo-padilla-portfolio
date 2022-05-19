@@ -19,7 +19,9 @@ transition: {
 
     return (
         <Section name='skills' className='pb-20 pt-10  bg-accent'>
-            <h1 className='text-center text-white'>Skills</h1>
+            <button className='cursor-default w-full'>
+                <h1 className='text-center text-white'>Skills</h1>
+            </button>
 
             <motion.div
                 variants={skillsVariants}

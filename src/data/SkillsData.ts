@@ -48,7 +48,7 @@ export const SkillsData: SkillBlockProps[] = [
         skills: [
             { icon: "logos:figma", name: "Figma" },
             { icon: "logos:git-icon", name: "Git" },
-            { icon: "logos:aws", name: "Amazon Web Services" },
+            { icon: "logos:aws", name: "AWS" },
             { icon: "logos:postman-icon", name: "Post Man", bg: "bg-[#FF6C37]" },
             { icon: "logos:socket-io", name: "Socket IO" },
             { icon: "logos:ubuntu", name: "Ubuntu", bg: "bg-[#DD4814]" },

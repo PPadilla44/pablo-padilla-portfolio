@@ -55,8 +55,8 @@ transition: {
                     ))
                 }
                 <div className='flex gap-5'>
-                    <p className='text-lg'>{location}</p>
-                    <p className='text-lg'>{duration}</p>
+                    <p className='text-lg font-light'>{location}</p>
+                    <p className='text-lg font-light'>{duration}</p>
                 </div>
             </motion.div>
 

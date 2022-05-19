@@ -21,7 +21,7 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller })
     return (
         <div className={`max-w-xs w-full xl:w-fit  flex items-center gap-4 justify-center flex-col text-center min-h-[232px] h-full `}>
 
-            <h2 className='text-white z-20 justify-self-start whitespace-nowrap'>{title}</h2>
+            <h3 className='text-white z-20 justify-self-start whitespace-nowrap'>{title}</h3>
 
             <div className={`${smaller ? "w-64" : " w-72"}  flex flex-col relative items-center min-h-[132px] h-full justify-center`}>
 
@@ -33,13 +33,18 @@ const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller })
                     {
                         skills.map((s, i) => {
                             return (
-                                <ToolTip
-                                    tooltipText={s.name}
-                                    key={`Skil-${i}-${skills.length}`}
-                                    className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-md flex items-center justify-center w-14 h-14 
-                                overflow-hidden hover:shadow-xl transition-all hover:animate-bounce z-20`}>
-                                    <Icon icon={s.icon} height="40" color={s.color} />
-                                </ToolTip>
+                                <li
+                                key={`Skil-${i}-${skills.length}`}
+                                className={`z-20`}
+                                >
+                                    <ToolTip
+                                        tooltipText={s.name}
+                                        className={`${s.bg ? s.bg : "bg-white"} rounded-full shadow-md flex items-center justify-center w-14 h-14 
+                                overflow-hidden hover:shadow-xl transition-all hover:animate-bounce`}>
+                                        <Icon icon={s.icon} height="40" color={s.color} />
+                                    </ToolTip>
+                                    <p className='text-xs text-white font-light mt-1'>{s.name}</p>
+                                </li>
                             )
                         })
                     }

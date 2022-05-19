@@ -14,7 +14,7 @@ const NavMenu: React.FC<Props> = ({ opened, toggle }) => {
     const navVariants: Variants = {
         open: {
             y: 0,
-transition: {
+            transition: {
                 duration: 1
             }
         },
@@ -78,12 +78,26 @@ transition: {
                                     spy={true}
                                     activeClass='font-normal underline-offset-4 underline'
                                     className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
-                                    to={n.link} >
+                                    to={n.link} 
+                                    >
                                     <span>{n.title}</span>
                                 </Link>
                             </motion.li>
                         ))
                     }
+                    <motion.li
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href='https://drive.google.com/file/d/1_KuQOLixYHB2WoC7q4yHZ2I3Ftza7l5q/view?usp=sharing'
+                            className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
+                        >
+                            <span>Resume</span>
+                        </a>
+                    </motion.li>
                     <motion.li
                         variants={textVariants}
                         whileHover={{ scale: 1.1 }}
