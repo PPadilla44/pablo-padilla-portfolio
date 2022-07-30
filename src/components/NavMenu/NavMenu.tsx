@@ -92,7 +92,7 @@ const NavMenu: React.FC<Props> = ({ opened, toggle }) => {
                         <a
                             target="_blank"
                             rel="noreferrer"
-                            href='https://drive.google.com/file/d/1_KuQOLixYHB2WoC7q4yHZ2I3Ftza7l5q/view?usp=sharing'
+                            href='https://drive.google.com/file/d/1tvACKkk_ChLjr2_ENIOJfbd8G9ZGp8t-/view'
                             className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
                         >
                             <span>Resume</span>
