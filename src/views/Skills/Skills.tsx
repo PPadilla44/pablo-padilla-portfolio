@@ -11,7 +11,7 @@ const Skills = () => {
         },
         onscreen: {
             opacity: 1,
-transition: {
+            transition: {
                 duration: 1
             }
         }
@@ -22,6 +22,8 @@ transition: {
             <button className='cursor-default w-full'>
                 <h1 className='text-center text-white'>Skills</h1>
             </button>
+
+            <p className='text-center text-white'>Ordered By Proficiency</p>
 
             <motion.div
                 variants={skillsVariants}
