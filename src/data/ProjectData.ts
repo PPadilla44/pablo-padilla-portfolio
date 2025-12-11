@@ -21,7 +21,7 @@ export const ProjectData: ProjectBlockProps[] = [
             path: "/images/drawDashM.jpg",
             name: "Draw it Mobile"
         },
-        links: ["https://github.com/PPadilla44/draw_something", "http://3.128.205.160"],
+        links: ["https://github.com/PPadilla44/draw_something"],
         techs: ["cib:python", "cib:flask", "simple-icons:jinja", "fontisto:mysql", "cib:javascript", "simple-icons:bootstrap"],
         description: `Play with your friends by drawing a word you select and see if they can guess it! If they guess it correctly,
             you both get points! This web application was built with Python using the Flask framework focused on engineering drawing functionality in Javascript without libraries.`,

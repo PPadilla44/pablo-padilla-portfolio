@@ -57,7 +57,7 @@ const Nav = () => {
                             <a
                                 target="_blank"
                                 rel="noreferrer"
-                                href="https://drive.google.com/file/d/1ZfGADTHnA__nb6Ho3tQLI94ica7AqFAG/view?usp=sharing"
+                                href="https://docs.google.com/document/d/e/2PACX-1vSP1dbZsASJA4knjRCBi7fXQrADD62-b3XfktHj2a5I8TIT-0PGrYn2DFyd0hKw3g/pub"
                                 className="cursor-pointer text-lg hover:font-normal active:translate-y-[2px]"
                             >
                                 <span>Resume</span>
