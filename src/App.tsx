@@ -4,7 +4,6 @@ import Skills from "./views/Skills";
 import Projects from "./views/Projects";
 import Education from "./views/Education";
 import Experience from "./views/Experience";
-import Contact from "./views/Contact";
 
 
 function App() {
@@ -15,12 +14,10 @@ function App() {
       <Nav />
       
       <Hero />
-      <Projects />
-      <Skills />
-      <Education />
       <Experience />
-      <Contact />
-
+      <Skills />
+      <Projects />
+      <Education />
     </>
   );
 }
