@@ -5,7 +5,7 @@ const HeroIcons = () => {
 
     const data = [
         { icon: "fa6-brands:github", link: "https://github.com/PPadilla44" },
-        { icon: "fa6-brands:linkedin", link: "https://www.linkedin.com/in/pablo-padilla-6861b5137/" },
+        { icon: "fa6-brands:linkedin", link: "https://www.linkedin.com/in/pablopadilla44/" },
         { icon: "fa-solid:envelope", link: "mailto:padilla.pablo1998@gmail.com" }
     ]
 

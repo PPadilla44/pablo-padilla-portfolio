@@ -10,6 +10,16 @@ export const ExperienceData: ExperienceBlockProps[] = [
     image: "/images/ph_logo.png",
   },
   {
+    title: "Full-Stack Engineer",
+    subTitle: "Fast Way Hydroponics",
+    description: `Collaborated with a co-founder to deliver an internal web/mobile app. 
+    And worked with a small team of software engineers and facilitated workloads while tackling full-stack duties.`,
+    location: "Remote",
+    duration: "Feburary 2021 - March 2022",
+    image: "/images/fastway.png",
+    textAsImage: ["Fast Way", "Hydroponics"],
+  },
+  {
     title: "Teaching Assistant",
     subTitle: "Coding Dojo",
     description: `Support Instructors by assisting in teaching through small lectures, live demos, and frequent check-ins with students to identify what students 
@@ -17,15 +27,5 @@ export const ExperienceData: ExperienceBlockProps[] = [
     location: "Remote",
     duration: "September 2021 - September 2022",
     image: "/images/dojo.png",
-  },
-  {
-    title: "Full-Stack Engineer",
-    subTitle: "Fast Way Hydroponics",
-    description: `Collaborated with a co-founder to deliver an internal web/mobile app. 
-        And worked with a small team of software engineers and facilitated workloads while tackling full-stack duties.`,
-    location: "Remote",
-    duration: "Feburary 2021 - March 2022",
-    image: "/images/fastway.png",
-    textAsImage: ["Fast Way", "Hydroponics"],
   },
 ];

@@ -7,7 +7,7 @@ export const ProjectData: ProjectBlockProps[] = [
             path: "/images/odds.png",
             name: "What Are The Odds?! Mobile"
         },
-        links: ["https://github.com/PPadilla44/WhatAreTheOdds", "https://apps.apple.com/us/app/what-are-the-odds/id1615466936"],
+        links: ["https://github.com/PPadilla44/WhatAreTheOdds"],
         techs: ["mdi:react", "cib:typescript", "mdi:babel", "mdi:apple", "file-icons:jest", "cib:expo"],
         description: `Do you ever wonder about your odds of winning the lottery, getting heads in a coin flip, or catching a home run? With this app, You can set your own odds and continuously click a button until you hit those odds.`
     },

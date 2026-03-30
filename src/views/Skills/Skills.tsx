@@ -20,10 +20,10 @@ const Skills = () => {
     return (
         <Section name='skills' className='pb-20 pt-10  bg-accent'>
             <button className='cursor-default w-full'>
-                <h1 className='text-center text-white'>Skills</h1>
+                <h1 className='text-center md:text-left text-white'>Skills</h1>
             </button>
 
-            <p className='text-center text-white'>Ordered By Proficiency</p>
+            <p className='text-center md:text-left text-white mb-20'>Ordered By Proficiency</p>
 
             <motion.div
                 variants={skillsVariants}

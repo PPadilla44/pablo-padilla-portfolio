@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavData } from "../../data/NavData";
 import { Link } from "react-scroll";
-import Button from "../Button";
 import MenuButton from "../MenuButton";
 import NavMenu from "../NavMenu";
 import { motion, useCycle } from "framer-motion";
@@ -28,7 +27,7 @@ const Nav = () => {
             className={`${color && "bg-white shadow-lg top-0"
                 } w-screen h-16 fixed flex left-0 items-center justify-center z-50 transition-colors duration-500`}
         >
-            <div className="flex items-center justify-between w-full max-w-7xl px-3  ">
+            <div className="flex items-center justify-between md:justify-center w-full max-w-7xl px-3  ">
                 <div className="flex items-center">
                     <ul
                         className={` ${color ? "text-black" : "text-white"
@@ -57,7 +56,7 @@ const Nav = () => {
                             <a
                                 target="_blank"
                                 rel="noreferrer"
-                                href="https://docs.google.com/document/d/e/2PACX-1vSP1dbZsASJA4knjRCBi7fXQrADD62-b3XfktHj2a5I8TIT-0PGrYn2DFyd0hKw3g/pub"
+                                href={process.env.REACT_APP_RESUME_LINK}
                                 className="cursor-pointer text-lg hover:font-normal active:translate-y-[2px]"
                             >
                                 <span>Resume</span>
@@ -65,12 +64,6 @@ const Nav = () => {
                         </motion.li>
                     </ul>
                 </div>
-                <Link smooth={true} to="contact" spy={true}>
-                    <Button
-                        className={`hidden md:flex transition-all ease-in-out text-xl`}
-                        text="Contact Me"
-                    />
-                </Link>
 
                 <MenuButton toggle={() => toggleOpen()} />
 

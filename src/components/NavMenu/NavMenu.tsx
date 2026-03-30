@@ -1,7 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import { Link } from "react-scroll";
 import { NavData } from "../../data/NavData";
-import Button from "../Button";
 import HeroIcons from "../HeroIcons";
 
 interface Props {
@@ -92,20 +91,11 @@ const NavMenu: React.FC<Props> = ({ opened, toggle }) => {
                         <a
                             target="_blank"
                             rel="noreferrer"
-                            href='https://drive.google.com/file/d/1ZfGADTHnA__nb6Ho3tQLI94ica7AqFAG/view?usp=sharing'
+                            href={process.env.REACT_APP_RESUME_LINK}
                             className='cursor-pointer  text-4xl  hover:font-normal active:translate-y-[2px] '
                         >
                             <span>Resume</span>
                         </a>
-                    </motion.li>
-                    <motion.li
-                        variants={textVariants}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <Link className=" w-full flex justify-center" onClick={toggle} smooth={true} to='contact' spy={true}>
-                            <Button className={`flex transition-all ease-in-out text-4xl font-normal`} text='Contact Me' />
-                        </Link>
                     </motion.li>
                     <motion.li
                         whileHover={{ scale: 1.1 }}
