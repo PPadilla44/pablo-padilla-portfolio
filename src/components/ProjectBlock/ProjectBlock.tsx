@@ -6,10 +6,12 @@ type ImageProps = {
   path: string;
   name: string;
   className?: string;
-  /** Object-fit behaviour. Defaults to "cover" (landscape shots). Use "contain" for phone/tall screenshots. */
-  fit?: "cover" | "contain";
-  /** Override aspect ratio of the image box. Defaults to "16/10". */
+  /** Object-fit behaviour. "cover" = landscape screenshot, "contain" = phone mockup, "brand" = logo poster. */
+  fit?: "cover" | "contain" | "brand";
+  /** Override aspect ratio of the image box. Defaults per fit mode. */
   aspect?: string;
+  /** For fit="brand": alternate image to show in dark mode (theme-swap). */
+  darkPath?: string;
 };
 
 export interface ProjectBlockProps {
@@ -20,20 +22,15 @@ export interface ProjectBlockProps {
   techs: string[];
   mainImage: ImageProps;
   secondaryImage?: ImageProps;
-  /** Optional brand logo displayed as a circular badge next to the title. */
   brandLogo?: string;
-  /** Optional hex / CSS color used as the accent backplate for this project. Overrides rotation default. */
   brandAccent?: string;
-  /** Optional tagline shown under the project title. */
   tagline?: string;
+  /** Short copy shown under the logo in fit="brand" mode. */
+  brandLine?: string;
   index?: number;
 }
 
-type PhoneProps = {
-  src: string;
-  alt: string;
-  compact?: boolean;
-};
+type PhoneProps = { src: string; alt: string; compact?: boolean };
 
 const PhoneMockup: React.FC<PhoneProps> = ({ src, alt, compact = false }) => (
   <div
@@ -59,7 +56,6 @@ const PhoneMockup: React.FC<PhoneProps> = ({ src, alt, compact = false }) => (
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
-      {/* Dynamic island */}
       <span
         aria-hidden="true"
         className={`absolute left-1/2 -translate-x-1/2 bg-black rounded-full ${
@@ -67,21 +63,38 @@ const PhoneMockup: React.FC<PhoneProps> = ({ src, alt, compact = false }) => (
         }`}
       />
     </div>
-    {/* Side buttons (only on full-size) */}
     {!compact && (
       <>
-        <span
-          aria-hidden="true"
-          className="absolute -left-[3px] top-10 sm:top-14 w-[3px] h-8 sm:h-10 bg-black rounded-l-sm"
-        />
-        <span
-          aria-hidden="true"
-          className="absolute -right-[3px] top-16 sm:top-20 w-[3px] h-10 sm:h-14 bg-black rounded-r-sm"
-        />
+        <span aria-hidden="true" className="absolute -left-[3px] top-10 sm:top-14 w-[3px] h-8 sm:h-10 bg-black rounded-l-sm" />
+        <span aria-hidden="true" className="absolute -right-[3px] top-16 sm:top-20 w-[3px] h-10 sm:h-14 bg-black rounded-r-sm" />
       </>
     )}
   </div>
 );
+
+type LinkMeta = {
+  url: string;
+  label: string;
+  icon: string;
+  primary: boolean;
+  ariaVerb: string;
+};
+
+const describeLink = (url: string): LinkMeta => {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    if (/github\.com$/.test(host))
+      return { url, label: "Repo", icon: "fa6-brands:github", primary: false, ariaVerb: "View source on GitHub" };
+    if (/apps\.apple\.com$/.test(host))
+      return { url, label: "App Store", icon: "fa6-brands:app-store-ios", primary: true, ariaVerb: "Open on App Store" };
+    if (/play\.google\.com$/.test(host))
+      return { url, label: "Play Store", icon: "fa6-brands:google-play", primary: true, ariaVerb: "Open on Play Store" };
+    return { url, label: host, icon: "ph:globe-bold", primary: true, ariaVerb: "Visit" };
+  } catch {
+    return { url, label: "Link", icon: "", primary: false, ariaVerb: "Open" };
+  }
+};
 
 const ProjectBlock: React.FC<ProjectBlockProps> = ({
   reversed = false,
@@ -94,24 +107,23 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
   brandLogo,
   brandAccent,
   tagline,
+  brandLine,
   index = 0,
 }) => {
-  const hasLive = links.length > 1;
-  const liveUrl = links[1];
-  const isAppStore = /apps\.apple\.com/.test(liveUrl ?? "");
-  const isPlayStore = /play\.google\.com/.test(liveUrl ?? "");
-  const liveMeta = isAppStore
-    ? { label: "App Store", icon: "fa6-brands:app-store-ios" }
-    : isPlayStore
-    ? { label: "Play Store", icon: "fa6-brands:google-play" }
-    : { label: "Live", icon: "" };
   const isPhone = mainImage.fit === "contain";
+  const isBrand = mainImage.fit === "brand";
   const hasSecondaryPhone = isPhone && !!secondaryImage;
 
   const accentBgClass =
     index % 3 === 0 ? "bg-primary" : index % 3 === 1 ? "bg-vivid" : "bg-sec";
   const accentTint =
     index % 3 === 0 ? "bg-primary/10" : index % 3 === 1 ? "bg-vivid/10" : "bg-sec/10";
+
+  const buttons = links.map(describeLink);
+  const orderedButtons = [
+    ...buttons.filter((b) => b.primary),
+    ...buttons.filter((b) => !b.primary),
+  ];
 
   return (
     <motion.article
@@ -123,9 +135,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
       className="group relative grid grid-cols-12 gap-6 md:gap-10 items-center"
     >
       {/* Image block */}
-      <div
-        className={`col-span-12 md:col-span-7 relative ${reversed ? "md:order-2" : ""}`}
-      >
+      <div className={`col-span-12 md:col-span-7 relative ${reversed ? "md:order-2" : ""}`}>
         {/* Accent backplate */}
         <div
           aria-hidden="true"
@@ -139,75 +149,120 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
           className={`relative border-2 border-line shadow-hard bg-surface overflow-hidden group-hover:shadow-hard-hover group-hover:translate-x-[4px] group-hover:translate-y-[4px] transition-all duration-300 ${
             isPhone
               ? "aspect-[4/5] sm:aspect-[16/11] md:aspect-[16/10]"
+              : isBrand
+              ? "aspect-[4/5] sm:aspect-[16/11] md:aspect-[16/10]"
               : "aspect-[16/10]"
           }`}
           style={mainImage.aspect ? { aspectRatio: mainImage.aspect } : undefined}
         >
-          {isPhone ? (
+          {isBrand ? (
+            // Brand poster treatment — centered logo on tinted backplate with stickers
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center p-8 sm:p-12 md:p-16 overflow-hidden"
+              style={
+                brandAccent
+                  ? { backgroundColor: `${brandAccent}1F` }
+                  : undefined
+              }
+            >
+              <div className="noise" aria-hidden="true" />
+              <div className="absolute inset-0 bg-grid opacity-20" aria-hidden="true" />
+
+              {/* Theme-aware logo (dark path visible in dark mode, default path in light) */}
+              <div className="relative z-10 flex flex-col items-center gap-4 md:gap-6 max-w-full">
+                {mainImage.darkPath ? (
+                  <>
+                    <img
+                      src={mainImage.path}
+                      alt={mainImage.name}
+                      width="500"
+                      height="150"
+                      loading="lazy"
+                      decoding="async"
+                      className="block dark:hidden max-w-[min(80%,_420px)] h-auto object-contain"
+                    />
+                    <img
+                      src={mainImage.darkPath}
+                      alt=""
+                      aria-hidden="true"
+                      width="500"
+                      height="150"
+                      loading="lazy"
+                      decoding="async"
+                      className="hidden dark:block max-w-[min(80%,_420px)] h-auto object-contain"
+                    />
+                  </>
+                ) : (
+                  <img
+                    src={mainImage.path}
+                    alt={mainImage.name}
+                    width="500"
+                    height="150"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-w-[min(80%,_420px)] h-auto object-contain"
+                  />
+                )}
+
+                {brandLine && (
+                  <p
+                    className="text-center font-display italic text-lg sm:text-xl md:text-2xl leading-snug max-w-md"
+                    style={brandAccent ? { color: brandAccent } : undefined}
+                  >
+                    {brandLine}
+                  </p>
+                )}
+              </div>
+
+              {/* Stickers */}
+              <span
+                aria-hidden="true"
+                className="hidden sm:inline-flex absolute top-4 right-4 md:top-6 md:right-6 tag-mono rotate-[5deg] bg-ink text-bg border-line whitespace-nowrap"
+              >
+                {tagline ?? "Web · Live"}
+              </span>
+              <span
+                aria-hidden="true"
+                className="hidden sm:inline-flex absolute bottom-4 left-4 md:bottom-6 md:left-6 tag-mono rotate-[-5deg] bg-surface text-ink border-line whitespace-nowrap"
+              >
+                Shipping now
+              </span>
+            </div>
+          ) : isPhone ? (
             <div
               className={`absolute inset-0 flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-hidden ${
                 brandAccent ? "" : accentTint
               }`}
-              style={
-                brandAccent
-                  ? { backgroundColor: `${brandAccent}1A` /* 10% alpha */ }
-                  : undefined
-              }
+              style={brandAccent ? { backgroundColor: `${brandAccent}1A` } : undefined}
             >
-              {/* Decorative grid backdrop */}
               <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
 
-              {/* Brand logo badge (if provided) */}
-              {brandLogo && (
+              {brandLogo ? (
                 <span
                   aria-hidden="true"
                   className="hidden sm:flex absolute top-3 left-3 md:top-6 md:left-6 w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-line shadow-hard-sm bg-surface items-center justify-center overflow-hidden rotate-[-6deg]"
                 >
-                  <img
-                    src={brandLogo}
-                    alt=""
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                    className="w-full h-full object-contain"
-                  />
+                  <img src={brandLogo} alt="" width="64" height="64" loading="lazy" className="w-full h-full object-contain" />
                 </span>
-              )}
-
-              {/* Fallback platform sticker when no logo */}
-              {!brandLogo && (
-                <span
-                  aria-hidden="true"
-                  className="hidden sm:inline-flex absolute top-3 left-3 md:top-6 md:left-6 tag-mono rotate-[-6deg] bg-ink text-bg border-line whitespace-nowrap"
-                >
+              ) : (
+                <span aria-hidden="true" className="hidden sm:inline-flex absolute top-3 left-3 md:top-6 md:left-6 tag-mono rotate-[-6deg] bg-ink text-bg border-line whitespace-nowrap">
                   iOS · React Native
                 </span>
               )}
 
-              {/* Tagline sticker (bottom-right) */}
-              <span
-                aria-hidden="true"
-                className="hidden sm:inline-flex absolute bottom-3 right-3 md:bottom-6 md:right-6 tag-mono rotate-[5deg] bg-primary text-primary-fg border-line whitespace-nowrap"
-              >
+              <span aria-hidden="true" className="hidden sm:inline-flex absolute bottom-3 right-3 md:bottom-6 md:right-6 tag-mono rotate-[5deg] bg-primary text-primary-fg border-line whitespace-nowrap">
                 {tagline ?? "Mobile · Native"}
               </span>
 
-              {/* Phones */}
               <div className="relative flex items-center justify-center">
-                {/* Secondary phone — smaller, behind, tilted opposite */}
                 {hasSecondaryPhone && secondaryImage && (
                   <div
                     className="absolute transition-transform duration-500 rotate-[10deg] translate-x-[65%] translate-y-[10%] group-hover:translate-x-[80%] group-hover:rotate-[14deg]"
                     style={{ zIndex: 1 }}
                   >
-                    <PhoneMockup
-                      src={secondaryImage.path}
-                      alt={secondaryImage.name}
-                      compact
-                    />
+                    <PhoneMockup src={secondaryImage.path} alt={secondaryImage.name} compact />
                   </div>
                 )}
-                {/* Main phone */}
                 <div
                   className="relative transition-transform duration-500 -rotate-3 group-hover:rotate-0 group-hover:scale-[1.03]"
                   style={{ zIndex: 2 }}
@@ -238,56 +293,36 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
                   className={`absolute ${reversed ? "right-3" : "left-3"} bottom-3 w-20 md:w-24 border-2 border-line shadow-hard-sm bg-surface`}
                 />
               )}
-            </>
-          )}
-
-          {/* Diagonal marquee ribbon on hover (landscape projects only) */}
-          {!isPhone && (
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center"
-            >
-              <div className="w-full bg-primary/95 text-primary-fg py-2 border-y-2 border-line overflow-hidden rotate-[-6deg]">
-                <div className="flex gap-8 animate-marquee whitespace-nowrap font-display font-black uppercase tracking-tighter text-2xl">
-                  {[...Array(8)].map((_, k) => (
-                    <span key={k} className="inline-flex items-center gap-3">
-                      {title}
-                      <span aria-hidden="true">★</span>
-                    </span>
-                  ))}
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center">
+                <div className="w-full bg-primary/95 text-primary-fg py-2 border-y-2 border-line overflow-hidden rotate-[-6deg]">
+                  <div className="flex gap-8 animate-marquee whitespace-nowrap font-display font-black uppercase tracking-tighter text-2xl">
+                    {[...Array(8)].map((_, k) => (
+                      <span key={k} className="inline-flex items-center gap-3">
+                        {title}
+                        <span aria-hidden="true">★</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>
 
       {/* Text block */}
-      <div
-        className={`col-span-12 md:col-span-5 flex flex-col gap-5 ${
-          reversed ? "md:order-1 md:text-right md:items-end" : ""
-        }`}
-      >
+      <div className={`col-span-12 md:col-span-5 flex flex-col gap-5 ${reversed ? "md:order-1 md:text-right md:items-end" : ""}`}>
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
           [{String(index + 1).padStart(2, "0")} / {"{project}"}]
         </span>
 
-        <div
-          className={`flex items-center gap-3 ${reversed ? "md:flex-row-reverse" : ""}`}
-        >
+        <div className={`flex items-center gap-3 ${reversed ? "md:flex-row-reverse" : ""}`}>
           {brandLogo && (
             <span
               aria-hidden="true"
               className="inline-flex w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-line shadow-hard-sm bg-surface items-center justify-center overflow-hidden shrink-0"
             >
-              <img
-                src={brandLogo}
-                alt=""
-                width="56"
-                height="56"
-                loading="lazy"
-                className="w-full h-full object-contain"
-              />
+              <img src={brandLogo} alt="" width="56" height="56" loading="lazy" className="w-full h-full object-contain" />
             </span>
           )}
           <h3 className="font-display font-black uppercase tracking-tighter text-4xl sm:text-5xl md:text-6xl leading-[0.9]">
@@ -295,14 +330,9 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
           </h3>
         </div>
 
-        <p className="text-sm md:text-base leading-relaxed text-ink/90 max-w-prose">
-          {description}
-        </p>
+        <p className="text-sm md:text-base leading-relaxed text-ink/90 max-w-prose">{description}</p>
 
-        <ul
-          className={`flex flex-wrap gap-1.5 ${reversed ? "md:justify-end" : ""}`}
-          aria-label="Technologies used"
-        >
+        <ul className={`flex flex-wrap gap-1.5 ${reversed ? "md:justify-end" : ""}`} aria-label="Technologies used">
           {techs.map((t) => (
             <li key={`tech-${title}-${t}`}>
               <span className="tag-mono">
@@ -313,40 +343,24 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
           ))}
         </ul>
 
-        <div
-          className={`flex flex-wrap gap-3 items-center pt-2 ${
-            reversed ? "md:justify-end" : ""
-          }`}
-        >
-          <a
-            href={links[0]}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View ${title} source on GitHub (opens in a new tab)`}
-            data-testid="project-link-github"
-            className="brutal-btn"
-          >
-            <Icon icon="fa6-brands:github" width={14} height={14} aria-hidden="true" />
-            Repo
-          </a>
-          {hasLive && (
+        <div className={`flex flex-wrap gap-3 items-center pt-2 ${reversed ? "md:justify-end" : ""}`}>
+          {orderedButtons.map((b, i) => (
             <a
-              href={liveUrl}
+              key={`btn-${b.url}`}
+              href={b.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open ${title} on ${liveMeta.label} (opens in a new tab)`}
-              data-testid="project-link-live"
-              className="brutal-btn brutal-btn-primary"
+              aria-label={`${b.ariaVerb} — ${title} (opens in a new tab)`}
+              data-testid={b.primary ? (i === 0 ? "project-link-live" : undefined) : "project-link-github"}
+              className={`brutal-btn ${b.primary ? "brutal-btn-primary" : ""}`}
             >
-              {liveMeta.icon && (
-                <Icon icon={liveMeta.icon} width={14} height={14} aria-hidden="true" />
+              {b.icon && <Icon icon={b.icon} width={14} height={14} aria-hidden="true" />}
+              {b.label}
+              {b.primary && (
+                <span className="text-xl leading-none" aria-hidden="true">↗</span>
               )}
-              {liveMeta.label}
-              <span className="text-xl leading-none" aria-hidden="true">
-                ↗
-              </span>
             </a>
-          )}
+          ))}
         </div>
       </div>
     </motion.article>

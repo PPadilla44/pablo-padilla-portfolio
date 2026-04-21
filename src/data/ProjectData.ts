@@ -2,6 +2,29 @@ import { ProjectBlockProps } from "../components/ProjectBlock/ProjectBlock";
 
 export const ProjectData: ProjectBlockProps[] = [
   {
+    title: "Kindheld",
+    brandLogo: "/images/kindheld_icon.png",
+    brandAccent: "#D2583E",
+    tagline: "AI · Web · Live",
+    brandLine: "Show up for the people who matter most.",
+    mainImage: {
+      path: "/images/kindheld_logo_black.png",
+      darkPath: "/images/kindheld_logo_white.png",
+      name: "Kindheld — relationship memory assistant",
+      fit: "brand",
+    },
+    links: ["https://kindheld.com"],
+    techs: [
+      "logos:react",
+      "logos:tailwindcss-icon",
+      "logos:fastapi-icon",
+      "logos:python",
+      "simple-icons:anthropic",
+      "vscode-icons:file-type-mongo",
+    ],
+    description: `A relationship memory assistant that helps you show up for the people who matter most. Add notes about the people in your life, set reminders for important moments, and get AI-drafted messages so you never forget to follow up — built to solve a deeply human problem: not that people don't care, but that life gets busy.`,
+  },
+  {
     title: "Rallier",
     brandLogo: "/images/rallier_logo.png",
     brandAccent: "#22C55E",
