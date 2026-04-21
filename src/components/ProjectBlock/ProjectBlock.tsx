@@ -97,6 +97,14 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
   index = 0,
 }) => {
   const hasLive = links.length > 1;
+  const liveUrl = links[1];
+  const isAppStore = /apps\.apple\.com/.test(liveUrl ?? "");
+  const isPlayStore = /play\.google\.com/.test(liveUrl ?? "");
+  const liveMeta = isAppStore
+    ? { label: "App Store", icon: "fa6-brands:app-store-ios" }
+    : isPlayStore
+    ? { label: "Play Store", icon: "fa6-brands:google-play" }
+    : { label: "Live", icon: "" };
   const isPhone = mainImage.fit === "contain";
   const hasSecondaryPhone = isPhone && !!secondaryImage;
 
@@ -323,14 +331,17 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
           </a>
           {hasLive && (
             <a
-              href={links[1]}
+              href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open ${title} live application (opens in a new tab)`}
+              aria-label={`Open ${title} on ${liveMeta.label} (opens in a new tab)`}
               data-testid="project-link-live"
               className="brutal-btn brutal-btn-primary"
             >
-              Live
+              {liveMeta.icon && (
+                <Icon icon={liveMeta.icon} width={14} height={14} aria-hidden="true" />
+              )}
+              {liveMeta.label}
               <span className="text-xl leading-none" aria-hidden="true">
                 ↗
               </span>
