@@ -66,15 +66,81 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
           className="relative border-2 border-line shadow-hard bg-surface overflow-hidden group-hover:shadow-hard-hover group-hover:translate-x-[4px] group-hover:translate-y-[4px] transition-all duration-300"
           style={{ aspectRatio: mainImage.aspect ?? "16/10" }}
         >
-          <img
-            src={mainImage.path}
-            alt={mainImage.name}
-            width="1000"
-            height="625"
-            loading="lazy"
-            decoding="async"
-            className={`w-full h-full ${mainImage.fit === "contain" ? "object-contain p-4 md:p-8" : "object-cover"} object-center`}
-          />
+          {mainImage.fit === "contain" ? (
+            // Phone mockup treatment — bezel + dynamic island + decorative stickers
+            <div
+              className={`absolute inset-0 flex items-center justify-center p-6 md:p-10 overflow-hidden ${
+                index % 3 === 0
+                  ? "bg-primary/10"
+                  : index % 3 === 1
+                  ? "bg-vivid/10"
+                  : "bg-sec/10"
+              }`}
+            >
+              {/* Decorative grid backdrop */}
+              <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
+
+              {/* Sticker: platform */}
+              <span
+                aria-hidden="true"
+                className="absolute top-4 left-4 md:top-6 md:left-6 tag-mono rotate-[-6deg] bg-ink text-bg border-line"
+              >
+                iOS · React Native
+              </span>
+
+              {/* Sticker: emphasis */}
+              <span
+                aria-hidden="true"
+                className="absolute bottom-4 right-4 md:bottom-6 md:right-6 tag-mono rotate-[5deg] bg-primary text-primary-fg border-line"
+              >
+                Mobile · Native
+              </span>
+
+              {/* The phone */}
+              <div className="relative transition-transform duration-500 -rotate-3 group-hover:rotate-0 group-hover:scale-[1.03]">
+                <div className="relative bg-black rounded-[2.2rem] p-2 border-2 border-line shadow-hard-lg">
+                  <div
+                    className="relative rounded-[1.7rem] overflow-hidden bg-black"
+                    style={{ aspectRatio: "9/19.5", width: "min(44vw, 220px)" }}
+                  >
+                    <img
+                      src={mainImage.path}
+                      alt={mainImage.name}
+                      width="220"
+                      height="476"
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                    />
+                    {/* Dynamic island */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full"
+                    />
+                  </div>
+                </div>
+                {/* Side buttons */}
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[3px] top-14 w-[3px] h-10 bg-black rounded-l-sm"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-[3px] top-20 w-[3px] h-14 bg-black rounded-r-sm"
+                />
+              </div>
+            </div>
+          ) : (
+            <img
+              src={mainImage.path}
+              alt={mainImage.name}
+              width="1000"
+              height="625"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover object-center"
+            />
+          )}
           {secondaryImage && (
             <img
               src={secondaryImage.path}
