@@ -6,6 +6,10 @@ type ImageProps = {
   path: string;
   name: string;
   className?: string;
+  /** Object-fit behaviour. Defaults to "cover" (landscape shots). Use "contain" for phone/tall screenshots. */
+  fit?: "cover" | "contain";
+  /** Override aspect ratio of the image box. Defaults to "16/10". */
+  aspect?: string;
 };
 
 export interface ProjectBlockProps {
@@ -58,7 +62,10 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
           } border-2 border-line`}
         />
 
-        <div className="relative border-2 border-line shadow-hard bg-surface overflow-hidden aspect-[16/10] group-hover:shadow-hard-hover group-hover:translate-x-[4px] group-hover:translate-y-[4px] transition-all duration-300">
+        <div
+          className="relative border-2 border-line shadow-hard bg-surface overflow-hidden group-hover:shadow-hard-hover group-hover:translate-x-[4px] group-hover:translate-y-[4px] transition-all duration-300"
+          style={{ aspectRatio: mainImage.aspect ?? "16/10" }}
+        >
           <img
             src={mainImage.path}
             alt={mainImage.name}
@@ -66,7 +73,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
             height="625"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover object-center"
+            className={`w-full h-full ${mainImage.fit === "contain" ? "object-contain p-4 md:p-8" : "object-cover"} object-center`}
           />
           {secondaryImage && (
             <img
