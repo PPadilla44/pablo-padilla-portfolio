@@ -132,6 +132,10 @@
         text-shadow: 4px 4px 0 var(--color-shadow);
     }
 
+    /* Hide scrollbars while preserving scrollability */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
     .bg-grid {
         background-image:
             linear-gradient(var(--color-border) 1px, transparent 1px),
