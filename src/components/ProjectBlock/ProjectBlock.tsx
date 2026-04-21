@@ -27,6 +27,8 @@ export interface ProjectBlockProps {
   tagline?: string;
   /** Short copy shown under the logo in fit="brand" mode. */
   brandLine?: string;
+  /** Optional status pill shown in place of link buttons (e.g. "Coming to App Store"). */
+  status?: string;
   index?: number;
 }
 
@@ -108,6 +110,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
   brandAccent,
   tagline,
   brandLine,
+  status,
   index = 0,
 }) => {
   const isPhone = mainImage.fit === "contain";
@@ -344,23 +347,33 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
         </ul>
 
         <div className={`flex flex-wrap gap-3 items-center pt-2 ${reversed ? "md:justify-end" : ""}`}>
-          {orderedButtons.map((b, i) => (
-            <a
-              key={`btn-${b.url}`}
-              href={b.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${b.ariaVerb} — ${title} (opens in a new tab)`}
-              data-testid={b.primary ? (i === 0 ? "project-link-live" : undefined) : "project-link-github"}
-              className={`brutal-btn ${b.primary ? "brutal-btn-primary" : ""}`}
+          {orderedButtons.length === 0 && status ? (
+            <span
+              data-testid="project-status-pill"
+              className="inline-flex items-center gap-2 border-2 border-dashed border-line px-3 py-2 font-mono text-[11px] uppercase tracking-[0.15em] bg-surface text-ink"
             >
-              {b.icon && <Icon icon={b.icon} width={14} height={14} aria-hidden="true" />}
-              {b.label}
-              {b.primary && (
-                <span className="text-xl leading-none" aria-hidden="true">↗</span>
-              )}
-            </a>
-          ))}
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
+              {status}
+            </span>
+          ) : (
+            orderedButtons.map((b, i) => (
+              <a
+                key={`btn-${b.url}`}
+                href={b.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${b.ariaVerb} — ${title} (opens in a new tab)`}
+                data-testid={b.primary ? (i === 0 ? "project-link-live" : undefined) : "project-link-github"}
+                className={`brutal-btn ${b.primary ? "brutal-btn-primary" : ""}`}
+              >
+                {b.icon && <Icon icon={b.icon} width={14} height={14} aria-hidden="true" />}
+                {b.label}
+                {b.primary && (
+                  <span className="text-xl leading-none" aria-hidden="true">↗</span>
+                )}
+              </a>
+            ))
+          )}
         </div>
       </div>
     </motion.article>
