@@ -13,38 +13,12 @@ interface ProjectImagesProps {
   secondaryImage?: ImageProps;
 }
 
-const ProjectImages: React.FC<ProjectImagesProps> = ({
-  className,
-  reversed,
-  mainImage,
-  secondaryImage,
-}) => {
-  return (
-    <div
-      className={`${className ?? ""} flex w-80 min-w-[320px] h-52 md:h-72 items-center justify-center md:justify-end relative`}
-    >
-      <img
-        src={mainImage.path}
-        alt={mainImage.name}
-        width="320"
-        height="288"
-        loading="lazy"
-        decoding="async"
-        className={`${mainImage.className ?? ""} object-cover h-full rounded-lg shadow-md border-2 border-accent`}
-      />
-      {secondaryImage && (
-        <img
-          src={secondaryImage.path}
-          alt={secondaryImage.name}
-          width="96"
-          height="96"
-          loading="lazy"
-          decoding="async"
-          className={`${secondaryImage.className ?? "border-2 border-accent shadow-md"} w-20 md:w-24 rounded-lg absolute ${reversed ? "right-0" : "left-0"} bottom-0`}
-        />
-      )}
-    </div>
-  );
-};
+/**
+ * Legacy helper kept for import compatibility — ProjectBlock now renders
+ * images inline so this is a thin pass-through.
+ */
+const ProjectImages: React.FC<ProjectImagesProps> = ({ mainImage }) => (
+  <img src={mainImage.path} alt={mainImage.name} className="w-full h-auto" />
+);
 
 export default ProjectImages;

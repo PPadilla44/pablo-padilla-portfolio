@@ -6,13 +6,25 @@ interface Props {
   contained?: boolean;
   name: string;
   children?: React.ReactNode;
+  labelledBy?: string;
 }
 
-const Section: React.FC<Props> = ({ children, className, contained = true, name }) => {
+const Section: React.FC<Props> = ({
+  children,
+  className,
+  contained = true,
+  name,
+  labelledBy,
+}) => {
   return (
     <Element name={name}>
-      <section className={`${className ?? ""} overflow-hidden flex items-center justify-center`}>
-        <div className={`${contained ? "max-w-7xl" : ""} px-3 w-full`}>{children}</div>
+      <section
+        aria-labelledby={labelledBy}
+        className={`relative ${className ?? ""}`}
+      >
+        <div className={`${contained ? "max-w-[1400px] mx-auto" : ""} px-6 md:px-10 lg:px-16 w-full`}>
+          {children}
+        </div>
       </section>
     </Element>
   );

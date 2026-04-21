@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 import React from "react";
-import ToolTip from "../ToolTip";
 
 export interface SkillDataInterface {
   icon: string;
@@ -14,37 +14,70 @@ export interface SkillBlockProps {
   skills: SkillDataInterface[];
   icon: string;
   smaller?: boolean;
+  index?: number;
+  className?: string;
 }
 
-const SkillBlock: React.FC<SkillBlockProps> = ({ title, icon, skills, smaller }) => {
+const cardAccents = [
+  "bg-primary text-primary-fg", // 01
+  "bg-surface",
+  "bg-vivid text-black",
+  "bg-surface",
+  "bg-surface",
+  "bg-sec text-black",
+];
+
+const SkillBlock: React.FC<SkillBlockProps> = ({
+  title,
+  icon,
+  skills,
+  index = 0,
+  className = "",
+}) => {
+  const accent = cardAccents[index % cardAccents.length];
+  const dataTestId = `skills-category-${title.replace(/^\d+\.\s*/, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+
   return (
-    <div className="max-w-xs w-full xl:w-fit flex items-center gap-4 justify-center flex-col text-center min-h-[232px] h-full">
-      <h3 className="text-white z-20 justify-self-start whitespace-nowrap text-2xl font-medium">
-        {title}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
+      data-testid={dataTestId}
+      className={`${className} relative group border-2 border-line shadow-hard hover:shadow-hard-hover hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 overflow-hidden p-5 md:p-6 ${accent}`}
+    >
+      {/* Background ghost icon */}
+      <Icon
+        icon={icon}
+        width={180}
+        height={180}
+        aria-hidden="true"
+        className="absolute -right-6 -bottom-6 opacity-10"
+      />
+
+      <div className="relative flex items-center justify-between mb-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.25em] opacity-80">
+          [{String(index + 1).padStart(2, "0")}]
+        </span>
+        <Icon icon={icon} width={22} height={22} aria-hidden="true" />
+      </div>
+
+      <h3 className="relative font-display font-black uppercase tracking-tighter text-2xl md:text-3xl leading-[0.95] mb-4">
+        {title.replace(/^\d+\.\s*/, "")}
       </h3>
 
-      <div
-        className={`${smaller ? "w-64" : "w-72"} flex flex-col relative items-center min-h-[132px] h-full justify-center`}
-      >
-        <div className="text-blue-300 z-10 absolute opacity-20 top-1/2 -translate-y-1/2" aria-hidden="true">
-          <Icon icon={icon} height="150" />
-        </div>
-
-        <ul className="flex gap-4 h-full flex-wrap justify-center items-center">
-          {skills.map((s) => (
-            <li key={`skill-${title}-${s.name}`} className="z-20">
-              <ToolTip
-                tooltipText={s.name}
-                className={`${s.bg ?? "bg-white"} rounded-full shadow-md flex items-center justify-center w-14 h-14 overflow-hidden hover:shadow-xl transition-all motion-safe:hover:animate-bounce`}
-              >
-                <Icon icon={s.icon} height="40" color={s.color} aria-hidden="true" />
-              </ToolTip>
-              <p className="text-xs text-white font-light mt-1">{s.name}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+      <ul className="relative flex flex-wrap gap-1.5">
+        {skills.map((s) => (
+          <li
+            key={`${title}-${s.name}`}
+            className="inline-flex items-center gap-1.5 px-2 py-1 bg-surface border-2 border-line text-ink text-[11px] font-mono uppercase tracking-[0.08em]"
+          >
+            <Icon icon={s.icon} width={14} height={14} aria-hidden="true" />
+            {s.name}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 };
 

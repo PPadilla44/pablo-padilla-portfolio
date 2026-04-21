@@ -6,16 +6,27 @@ interface Props {
   className?: string;
   callBack?: () => void;
   type?: "button" | "submit" | "reset";
+  variant?: "primary" | "ghost";
+  testId?: string;
 }
 
-const Button: React.FC<Props> = ({ text, className, callBack, type = "button" }) => {
+const Button: React.FC<Props> = ({
+  text,
+  className,
+  callBack,
+  type = "button",
+  variant = "primary",
+  testId,
+}) => {
+  const variantClass =
+    variant === "primary" ? "brutal-btn brutal-btn-primary" : "brutal-btn";
   return (
     <motion.button
       type={type}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ x: 3, y: 3 }}
       onClick={callBack}
-      className={`text-black bg-blue-300 hover:bg-blue-400/80 active:bg-blue-400 px-2 pb-1 pt-2 md:px-3 md:py-2 rounded-md h-fit flex items-center justify-center shadow-md ${className ?? ""}`}
+      data-testid={testId}
+      className={`${variantClass} ${className ?? ""}`}
     >
       <span>{text}</span>
     </motion.button>

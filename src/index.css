@@ -2,61 +2,156 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-bg: #f4f4f0;
+    --color-surface: #ffffff;
+    --color-surface-hover: #eaeaea;
+    --color-primary: #ff4d00;
+    --color-primary-fg: #ffffff;
+    --color-ink: #0a0a0a;
+    --color-muted: #666666;
+    --color-border: #0a0a0a;
+    --color-vivid: #0000ff;
+    --color-sec: #ff6bcc;
+    --color-shadow: #0a0a0a;
+    color-scheme: light;
+}
+
+.dark {
+    --color-bg: #0f0f0f;
+    --color-surface: #1c1c1c;
+    --color-surface-hover: #262626;
+    --color-primary: #ff4d00;
+    --color-primary-fg: #000000;
+    --color-ink: #f4f4f0;
+    --color-muted: #8a8a8a;
+    --color-border: #333333;
+    --color-vivid: #ccff00;
+    --color-sec: #ff6bcc;
+    --color-shadow: #ff4d00;
+    color-scheme: dark;
+}
+
 @layer base {
     html {
-        @apply font-spartan;
-        scroll-behavior: smooth;
+        @apply bg-bg text-ink;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     body {
-        @apply text-black antialiased;
+        @apply bg-bg text-ink;
+        overflow-x: hidden;
     }
 
-    h1 {
-        @apply text-6xl font-semibold;
+    ::selection {
+        background: var(--color-primary);
+        color: var(--color-primary-fg);
     }
 
-    h2 {
-        @apply text-4xl font-medium;
-    }
-
-    h3 {
-        @apply text-3xl font-normal;
-    }
-
-    h4 {
-        @apply text-2xl font-normal;
-    }
-
-    h5 {
-        @apply text-base md:text-lg font-extralight;
-    }
-
-    p {
-        @apply text-xl font-normal;
-    }
-
-    a {
-        @apply font-light text-lg;
-    }
-
-    /* Focus ring for keyboard users */
+    /* Keyboard focus ring */
     :focus-visible {
-        @apply outline-none ring-2 ring-offset-2 ring-accent;
+        outline: 3px solid var(--color-primary);
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: "Cabinet Grotesk", "Archivo", system-ui, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 0.95;
+    }
+
+    p, li, span, a, button, input, textarea {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
     }
 }
 
-/* Skip-to-content link: visually hidden until focused */
-.skip-link {
-    @apply absolute left-2 -top-16 z-[100] bg-accent text-white px-4 py-2 rounded-md shadow-lg;
-    transition: top 0.2s ease-in-out;
+@layer components {
+    /* Signature hard-edged card */
+    .brutal-card {
+        @apply bg-surface border-2 border-line shadow-hard transition-all duration-200;
+    }
+
+    .brutal-card-hover:hover {
+        @apply shadow-hard-hover;
+        transform: translate(4px, 4px);
+    }
+
+    .brutal-btn {
+        @apply inline-flex items-center justify-center gap-2 border-2 border-line bg-surface px-4 py-2 font-mono text-sm uppercase tracking-[0.15em] shadow-hard-sm transition-all duration-150;
+    }
+
+    .brutal-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 0 var(--color-shadow);
+    }
+
+    .brutal-btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0 0 0 0 var(--color-shadow);
+    }
+
+    .brutal-btn-primary {
+        @apply bg-primary text-primary-fg border-line;
+    }
+
+    .tag-mono {
+        @apply inline-flex items-center gap-2 border-2 border-line px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.15em] bg-surface text-ink;
+    }
+
+    .overline {
+        @apply font-mono text-xs uppercase tracking-[0.25em] text-muted;
+    }
+
+    .section-label {
+        @apply inline-block font-mono text-xs uppercase tracking-[0.3em] text-primary mb-3;
+    }
+
+    /* Dashed ticket style for education */
+    .ticket {
+        @apply bg-surface border-2 border-dashed border-line p-8 shadow-hard relative;
+    }
+
+    /* Skip-to-content link */
+    .skip-link {
+        @apply absolute left-4 -top-16 z-[200] bg-primary text-primary-fg px-4 py-2 border-2 border-line shadow-hard font-mono text-xs uppercase tracking-[0.2em];
+        transition: top 0.2s ease-in-out;
+    }
+
+    .skip-link:focus {
+        @apply top-4;
+    }
 }
 
-.skip-link:focus {
-    @apply top-2;
+@layer utilities {
+    .text-shadow-hard {
+        text-shadow: 4px 4px 0 var(--color-shadow);
+    }
+
+    .bg-grid {
+        background-image:
+            linear-gradient(var(--color-border) 1px, transparent 1px),
+            linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+        background-size: 48px 48px;
+        background-position: -1px -1px;
+        opacity: 0.15;
+    }
+
+    .noise {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.04;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
 }
 
-/* Respect user's reduced-motion preference */
+/* Reduced motion: respect user preference */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

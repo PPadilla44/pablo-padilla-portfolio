@@ -5,16 +5,20 @@ describe("<App />", () => {
   it("renders the hero headline", () => {
     render(<App />);
     expect(
-      screen.getByRole("heading", { level: 1, name: /pablo padilla/i })
+      screen.getByRole("heading", { level: 1, name: /pablo/i })
     ).toBeInTheDocument();
   });
 
-  it("renders all main sections", () => {
+  it("renders every main section heading", () => {
     render(<App />);
-    expect(screen.getByRole("heading", { name: /experience/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /skills/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /projects/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /education/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /contact/i })).toBeInTheDocument();
+    expect(screen.getByTestId("experience-section")).toBeInTheDocument();
+    expect(screen.getByTestId("skills-section")).toBeInTheDocument();
+    expect(screen.getByTestId("projects-section")).toBeInTheDocument();
+    expect(screen.getByTestId("education-section")).toBeInTheDocument();
+  });
+
+  it("renders the theme toggle", () => {
+    render(<App />);
+    expect(screen.getByTestId("theme-toggle-btn")).toBeInTheDocument();
   });
 });

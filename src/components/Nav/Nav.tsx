@@ -1,93 +1,52 @@
-import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-scroll";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import { NavData } from "../../data/NavData";
-import MenuButton from "../MenuButton";
-import NavMenu from "../NavMenu";
 
 const RESUME_LINK = process.env.REACT_APP_RESUME_LINK;
 
 const Nav = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, toggleOpen] = useCycle(false, true);
-
-  useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        const y = document.documentElement.scrollTop || document.body.scrollTop;
-        setScrolled(y > 20);
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  const closeMenu = useCallback(() => toggleOpen(0), [toggleOpen]);
-
   return (
     <motion.nav
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
       aria-label="Primary"
-      className={`${scrolled ? "bg-white shadow-lg" : ""} w-full h-16 fixed top-0 left-0 flex items-center justify-center z-50 transition-colors duration-500`}
+      data-testid="nav-container"
+      initial={{ y: 80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.6, type: "spring", stiffness: 300, damping: 28 }}
+      className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[calc(100vw-1rem)]"
     >
-      <div className="flex items-center justify-between md:justify-center w-full max-w-7xl px-3">
-        <div className="flex items-center">
-          <ul
-            className={`${scrolled ? "text-black" : "text-white"} hidden md:flex items-center gap-12`}
-          >
-            {NavData.map((n) => (
-              <motion.li
-                key={`nav-${n.link}`}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  smooth
-                  offset={-50}
-                  spy
-                  activeClass="font-normal underline-offset-4 underline"
-                  className="cursor-pointer text-lg hover:font-normal active:translate-y-[2px]"
-                  to={n.link}
-                >
-                  <span>{n.title}</span>
-                </Link>
-              </motion.li>
-            ))}
-            {RESUME_LINK && (
-              <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={RESUME_LINK}
-                  className="cursor-pointer text-lg hover:font-normal active:translate-y-[2px]"
-                >
-                  <span>Resume</span>
-                </a>
-              </motion.li>
-            )}
-          </ul>
-        </div>
-
-        <MenuButton
-          isOpen={isOpen}
-          scrolled={scrolled}
-          toggle={() => toggleOpen()}
-        />
-        <NavMenu opened={isOpen} toggle={closeMenu} />
-      </div>
+      <ul className="flex items-center gap-1 sm:gap-2 bg-surface/85 backdrop-blur-xl border-2 border-line shadow-hard px-2 py-2 sm:px-3">
+        {NavData.map((n) => (
+          <li key={`nav-${n.link}`}>
+            <Link
+              to={n.link}
+              smooth
+              spy
+              offset={-50}
+              duration={400}
+              activeClass="bg-primary text-primary-fg"
+              className="group relative cursor-pointer inline-flex items-center px-3 py-2 font-mono text-[11px] sm:text-xs uppercase tracking-[0.15em] text-ink hover:text-primary transition-colors"
+              data-testid={`nav-link-${n.link}`}
+            >
+              <span>{n.title}</span>
+            </Link>
+          </li>
+        ))}
+        {RESUME_LINK && (
+          <li>
+            <a
+              href={RESUME_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="nav-resume-btn"
+              className="inline-flex items-center gap-1 bg-primary text-primary-fg px-3 py-2 font-mono text-[11px] sm:text-xs uppercase tracking-[0.15em] border-2 border-line hover:-translate-y-0.5 transition-transform"
+              aria-label="Open resume in a new tab"
+            >
+              Resume
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        )}
+      </ul>
     </motion.nav>
   );
 };

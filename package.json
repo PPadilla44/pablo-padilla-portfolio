@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://pablopadilla.dev",
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@iconify/react": "^4.1.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
@@ -30,8 +29,11 @@
     "postbuild": "react-snap"
   },
   "reactSnap": {
-    "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "inlineCss": false,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "eslintConfig": {
     "extends": [
