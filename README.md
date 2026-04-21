@@ -2,7 +2,7 @@
 
 Full-stack software engineer based in the San Francisco Bay Area.
 
-**Live**: https://pablopadilla.dev
+**Live**: https://pablopadilla.net
 **LinkedIn**: https://www.linkedin.com/in/pablopadilla44/
 **GitHub**: https://github.com/PPadilla44
 
