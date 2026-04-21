@@ -1,16 +1,16 @@
-import { ShallowWrapper, shallow } from "enzyme";
-import Button from "./Button"
+import { render, screen, fireEvent } from "@testing-library/react";
+import Button from "./Button";
 
-describe('<Button />', () => {
+describe("<Button />", () => {
+  it("renders the text prop", () => {
+    render(<Button text="Contact Me" />);
+    expect(screen.getByRole("button", { name: /contact me/i })).toBeInTheDocument();
+  });
 
-    let wrapper: ShallowWrapper;
-
-    beforeEach(() => {
-        wrapper = shallow(<Button className='bg-dom text-xl text-white' text='Contact Me' />);
-    })
-
-    it('should render correctly', () => {
-        wrapper.render();
-    });
-
+  it("invokes the callBack on click", () => {
+    const callBack = jest.fn();
+    render(<Button text="Click" callBack={callBack} />);
+    fireEvent.click(screen.getByRole("button", { name: /click/i }));
+    expect(callBack).toHaveBeenCalledTimes(1);
+  });
 });

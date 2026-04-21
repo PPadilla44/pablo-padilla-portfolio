@@ -1,23 +1,28 @@
-import React from 'react'
-import ReactTooltip from 'react-tooltip';
+import React from "react";
+import { Tooltip } from "react-tooltip";
 
 interface ToolTipProps {
-    tooltipText: string;
-    callBack?: () => void;
-    className?: string;
+  tooltipText: string;
+  className?: string;
+  children?: React.ReactNode;
 }
 
-const ToolTip: React.FC<ToolTipProps> = ({ children, tooltipText, callBack, className }) => {
-    
+let counter = 0;
+const nextId = () => `tt-${++counter}`;
 
-    return (
-        <>
-            <div data-tip={tooltipText} className={className} >
-                {children}
-            </div>
-            <ReactTooltip place="top" type="dark" effect="solid" />
-        </>
-    );
-}
+const ToolTip: React.FC<ToolTipProps> = ({ children, tooltipText, className }) => {
+  const idRef = React.useRef<string>();
+  if (!idRef.current) idRef.current = nextId();
+  const id = idRef.current;
 
-export default ToolTip
+  return (
+    <>
+      <div data-tooltip-id={id} data-tooltip-content={tooltipText} className={className}>
+        {children}
+      </div>
+      <Tooltip id={id} place="top" />
+    </>
+  );
+};
+
+export default ToolTip;

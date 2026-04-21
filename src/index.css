@@ -1,32 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Artifika&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
     html {
-        @apply font-spartan
+        @apply font-spartan;
+        scroll-behavior: smooth;
     }
+
+    body {
+        @apply text-black antialiased;
+    }
+
     h1 {
-        @apply text-6xl font-semibold
+        @apply text-6xl font-semibold;
     }
+
     h2 {
-        @apply text-4xl font-medium
+        @apply text-4xl font-medium;
     }
+
     h3 {
-        @apply text-3xl font-normal
+        @apply text-3xl font-normal;
     }
+
     h4 {
-        @apply text-2xl font-normal
+        @apply text-2xl font-normal;
     }
+
     h5 {
-        @apply text-base md:text-lg font-extralight
+        @apply text-base md:text-lg font-extralight;
     }
+
     p {
-        @apply text-xl font-normal
+        @apply text-xl font-normal;
     }
+
     a {
-        @apply font-light text-lg
+        @apply font-light text-lg;
+    }
+
+    /* Focus ring for keyboard users */
+    :focus-visible {
+        @apply outline-none ring-2 ring-offset-2 ring-accent;
+    }
+}
+
+/* Skip-to-content link: visually hidden until focused */
+.skip-link {
+    @apply absolute left-2 -top-16 z-[100] bg-accent text-white px-4 py-2 rounded-md shadow-lg;
+    transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+    @apply top-2;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

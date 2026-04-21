@@ -1,13 +1,20 @@
-import { SkillBlockProps } from "../components/SkillBlock/SkillBlock";
+import { SkillDataInterface } from "../components/SkillBlock/SkillBlock";
 
-export const SkillsData: SkillBlockProps[] = [
+type SkillCategory = {
+  title: string;
+  icon: string;
+  skills: SkillDataInterface[];
+  smaller?: boolean;
+};
+
+export const SkillsData: SkillCategory[] = [
   {
     title: "1. MERN",
     icon: "fluent:library-20-filled",
     skills: [
       { icon: "logos:react", name: "React" },
       { icon: "logos:express", name: "Express" },
-      { icon: "logos:tailwindcss-icon", name: "Tail Wind" },
+      { icon: "logos:tailwindcss-icon", name: "Tailwind" },
       { icon: "logos:typescript-icon", name: "TypeScript", bg: "bg-[#007ACC]" },
       { icon: "vscode-icons:file-type-mongo", name: "MongoDB" },
       { icon: "logos:jest", name: "Jest" },
@@ -41,10 +48,10 @@ export const SkillsData: SkillBlockProps[] = [
     smaller: true,
   },
   {
-    title: "4. Next js",
+    title: "4. Next.js",
     icon: "fa-solid:network-wired",
     skills: [
-      { icon: "vscode-icons:file-type-light-next", name: "Next js" },
+      { icon: "vscode-icons:file-type-light-next", name: "Next.js" },
       { icon: "logos:postgresql", name: "PostgreSQL" },
       { icon: "logos:graphql", name: "GraphQL" },
       { icon: "logos:prisma", name: "Prisma" },
@@ -67,12 +74,12 @@ export const SkillsData: SkillBlockProps[] = [
     title: "Other Technologies",
     icon: "fa-solid:abacus",
     skills: [
-      { icon: "logos:nodejs", name: "Nodejs" },
+      { icon: "logos:nodejs", name: "Node.js" },
       { icon: "logos:figma", name: "Figma" },
       { icon: "logos:git-icon", name: "Git" },
       { icon: "logos:aws", name: "AWS" },
-      { icon: "logos:postman-icon", name: "Post Man", bg: "bg-[#FF6C37]" },
-      { icon: "logos:socket-io", name: "Socket IO" },
+      { icon: "logos:postman-icon", name: "Postman", bg: "bg-[#FF6C37]" },
+      { icon: "logos:socket-io", name: "Socket.IO" },
       { icon: "logos:ubuntu", name: "Ubuntu", bg: "bg-[#DD4814]" },
     ],
   },
