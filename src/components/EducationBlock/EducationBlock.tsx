@@ -88,7 +88,7 @@ const EducationBlock: React.FC<EducationBlockProps> = ({
           </dl>
         </div>
 
-        <div className="w-20 h-20 md:w-24 md:h-24 border-2 border-line bg-bg flex items-center justify-center p-2 shrink-0">
+        <div className="w-20 h-20 md:w-24 md:h-24 border-2 border-line bg-[#F4F4F0] flex items-center justify-center p-2 shrink-0">
           <img
             src={image}
             alt={title}

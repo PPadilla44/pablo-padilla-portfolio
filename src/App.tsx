@@ -20,7 +20,7 @@ function App() {
         <Projects />
         <Education />
         <footer
-          className="border-t-2 border-line py-10 text-center font-mono text-xs uppercase tracking-[0.3em] text-muted"
+          className="border-t-2 border-line pt-10 pb-36 md:pb-40 text-center font-mono text-xs uppercase tracking-[0.3em] text-muted"
           data-testid="site-footer"
         >
           Built with React · TypeScript · Tailwind · Framer Motion

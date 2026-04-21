@@ -60,10 +60,10 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({
         <div className="col-span-12 md:col-span-2 flex md:justify-end">
           <div
             data-testid="experience-company-logo"
-            className="w-24 h-24 md:w-28 md:h-28 bg-surface border-2 border-line shadow-hard-sm flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:rotate-[6deg] group-hover:shadow-hard"
+            className="w-24 h-24 md:w-28 md:h-28 bg-[#F4F4F0] text-black border-2 border-line shadow-hard-sm flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:rotate-[6deg] group-hover:shadow-hard"
           >
             {textAsImage ? (
-              <span className="font-display font-black text-xl leading-none text-center text-ink p-2">
+              <span className="font-display font-black text-xl leading-none text-center text-black p-2">
                 {textAsImage[0]}
                 <span className="block text-[10px] font-mono uppercase mt-1">
                   {textAsImage[1]}
