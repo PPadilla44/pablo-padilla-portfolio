@@ -1,76 +1,56 @@
-import { useState, useEffect } from "react";
-import { NavData } from "../../data/NavData";
 import { Link } from "react-scroll";
-import MenuButton from "../MenuButton";
-import NavMenu from "../NavMenu";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
+import { NavData } from "../../data/NavData";
+
+const RESUME_LINK = process.env.REACT_APP_RESUME_LINK;
 
 const Nav = () => {
-    const [color, setColor] = useState(false);
-    const [isOpen, toggleOpen] = useCycle(false, true);
-
-    useEffect(() => {
-        window.addEventListener("scroll", scrollHandler);
-        return () => window.removeEventListener("scroll", scrollHandler);
-    }, []);
-
-    const scrollHandler = () => {
-        const onTop =
-            document.body.scrollTop > 20 || document.documentElement.scrollTop > 20;
-        onTop ? setColor(true) : setColor(false);
-    };
-
-    return (
-        <motion.nav
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            className={`${color && "bg-white shadow-lg top-0"
-                } w-screen h-16 fixed flex left-0 items-center justify-center z-50 transition-colors duration-500`}
-        >
-            <div className="flex items-center justify-between md:justify-center w-full max-w-7xl px-3  ">
-                <div className="flex items-center">
-                    <ul
-                        className={` ${color ? "text-black" : "text-white"
-                            }  hidden md:flex items-center gap-12`}
-                    >
-                        {NavData.map((n, i) => (
-                            <motion.li
-                                key={`nav-${i}`}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Link
-                                    smooth={true}
-                                    offset={-50}
-                                    spy={true}
-                                    activeClass="font-normal underline-offset-4 underline"
-                                    className="cursor-pointer text-lg hover:font-normal active:translate-y-[2px]"
-                                    to={n.link}
-                                    tabIndex={1}
-                                >
-                                    <span>{n.title}</span>
-                                </Link>
-                            </motion.li>
-                        ))}
-                        <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                            <a
-                                target="_blank"
-                                rel="noreferrer"
-                                href={process.env.REACT_APP_RESUME_LINK}
-                                className="cursor-pointer text-lg hover:font-normal active:translate-y-[2px]"
-                            >
-                                <span>Resume</span>
-                            </a>
-                        </motion.li>
-                    </ul>
-                </div>
-
-                <MenuButton toggle={() => toggleOpen()} />
-
-                <NavMenu opened={isOpen} toggle={() => toggleOpen(0)} />
-            </div>
-        </motion.nav>
-    );
+  return (
+    <motion.nav
+      aria-label="Primary"
+      data-testid="nav-container"
+      initial={{ y: 80, opacity: 0, x: "-50%" }}
+      animate={{ y: 0, opacity: 1, x: "-50%" }}
+      transition={{ delay: 0.6, type: "spring", stiffness: 300, damping: 28 }}
+      className="fixed bottom-3 md:bottom-6 left-1/2 z-40"
+    >
+      <div className="bg-surface/85 backdrop-blur-xl border-2 border-line shadow-hard px-1 py-1 md:px-3 md:py-2 max-w-[calc(100vw-1.5rem)] overflow-hidden">
+        <ul className="flex items-center gap-0 md:gap-2 overflow-x-auto no-scrollbar">
+          {NavData.map((n) => (
+            <li key={`nav-${n.link}`} className="shrink-0">
+              <Link
+                to={n.link}
+                smooth
+                spy
+                offset={-50}
+                duration={400}
+                activeClass="bg-primary text-primary-fg"
+                className="cursor-pointer inline-flex items-center px-2 py-2 md:px-3 font-mono text-[10px] md:text-xs uppercase tracking-[0.05em] md:tracking-[0.15em] text-ink hover:text-primary transition-colors whitespace-nowrap"
+                data-testid={`nav-link-${n.link}`}
+              >
+                <span>{n.title}</span>
+              </Link>
+            </li>
+          ))}
+          {RESUME_LINK && (
+            <li className="shrink-0">
+              <a
+                href={RESUME_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="nav-resume-btn"
+                className="inline-flex items-center gap-0.5 bg-primary text-primary-fg px-2 py-2 md:px-3 md:gap-1 font-mono text-[10px] md:text-xs uppercase tracking-[0.05em] md:tracking-[0.15em] border-2 border-line hover:-translate-y-0.5 transition-transform whitespace-nowrap"
+                aria-label="Open resume in a new tab"
+              >
+                Resume
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+    </motion.nav>
+  );
 };
 
 export default Nav;

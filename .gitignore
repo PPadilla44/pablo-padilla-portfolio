@@ -24,3 +24,14 @@ yarn-error.log*
 
 .env
 .vscode
+/frontend
+/backend
+-e 
+# Environment and credential files
+.env
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials

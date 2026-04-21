@@ -1,1 +1,0 @@
-import HeroIcons from "./HeroIcons";

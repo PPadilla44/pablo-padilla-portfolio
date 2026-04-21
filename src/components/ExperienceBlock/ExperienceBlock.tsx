@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 
 export interface ExperienceBlockProps {
@@ -9,6 +9,7 @@ export interface ExperienceBlockProps {
   duration: string;
   image?: string;
   textAsImage?: string[];
+  index?: number;
 }
 
 const ExperienceBlock: React.FC<ExperienceBlockProps> = ({
@@ -19,63 +20,70 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({
   duration,
   image,
   textAsImage,
+  index = 0,
 }) => {
-  const exVariants: Variants = {
-    offscreenText: {
-      opacity: 0,
-    },
-    offscreenImg: {
-      opacity: 0,
-    },
-    onscreen: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
-
   return (
-    <div className="w-full h-full flex flex-col-reverse md:flex-row justify-between items-center gap-6">
-      <motion.div
-        variants={exVariants}
-        initial={"offscreenText"}
-        whileInView="onscreen"
-        viewport={{ once: true }}
-        className="w-full h-full max-w-md flex flex-col gap-2 items-center md:items-start text-center md:text-left "
-      >
-        <h2>{title}</h2>
-        <h4>{subTitle}</h4>
-        <p>{description}</p>
-        <div className="flex gap-5">
-          <p className="text-lg font-light">{location}</p>
-          <p className="text-lg font-light">{duration}</p>
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      data-testid={`experience-item-${index}`}
+      className="group relative border-b-2 border-line cursor-default transition-colors duration-300 hover:bg-vivid"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-10 md:py-14 grid grid-cols-12 gap-6 items-center transition-colors duration-300 group-hover:text-black">
+        {/* Index + dates */}
+        <div className="col-span-12 md:col-span-3 flex flex-col gap-1">
+          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted group-hover:text-black/60">
+            [{String(index + 1).padStart(2, "0")}]
+          </span>
+          <span className="font-mono text-sm md:text-base">{duration}</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted group-hover:text-black/60">
+            {location}
+          </span>
         </div>
-      </motion.div>
 
-      <motion.div
-        variants={exVariants}
-        initial={"offscreenImg"}
-        whileInView="onscreen"
-        viewport={{ once: true }}
-        className="bg-blue-200 border-2 border-accent shadow-md w-52 md:w-64 h-52 md:h-64 p-2 rounded-lg flex flex-col items-center justify-center"
-      >
-        {textAsImage ? (
-          <>
-            <img
-              src={image}
-              alt={title}
-              className="w-40 h-40 md:w-52 md:h-52"
-            />
-            <span className="text-4xl font-semibold text-black">
-              {textAsImage[0]}
-            </span>
-          </>
-        ) : (
-          <img src={image} alt={title} />
-        )}
-      </motion.div>
-    </div>
+        {/* Title + subtitle + description */}
+        <div className="col-span-12 md:col-span-7 flex flex-col gap-3">
+          <h3 className="font-display font-black uppercase tracking-tighter text-3xl sm:text-4xl md:text-5xl leading-[0.95]">
+            {title}
+          </h3>
+          <p className="font-mono text-sm uppercase tracking-[0.2em] text-primary group-hover:text-black">
+            @ {subTitle}
+          </p>
+          <p className="text-sm md:text-base leading-relaxed max-w-xl">
+            {description}
+          </p>
+        </div>
+
+        {/* Logo box */}
+        <div className="col-span-12 md:col-span-2 flex md:justify-end">
+          <div
+            data-testid="experience-company-logo"
+            className="w-24 h-24 md:w-28 md:h-28 bg-[#F4F4F0] text-black border-2 border-line shadow-hard-sm flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:rotate-[6deg] group-hover:shadow-hard"
+          >
+            {textAsImage ? (
+              <span className="font-display font-black text-xl leading-none text-center text-black p-2">
+                {textAsImage[0]}
+                <span className="block text-[10px] font-mono uppercase mt-1">
+                  {textAsImage[1]}
+                </span>
+              </span>
+            ) : (
+              <img
+                src={image}
+                alt={subTitle}
+                width="112"
+                height="112"
+                loading="lazy"
+                decoding="async"
+                className="max-w-[80%] max-h-[80%] object-contain"
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.article>
   );
 };
 
