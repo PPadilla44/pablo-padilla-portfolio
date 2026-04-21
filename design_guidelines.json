@@ -1,0 +1,135 @@
+{
+  "theme_strategy": {
+    "primary_archetype": "Neo-Brutalist Playful (Swiss High-Contrast meets Vibrant Play)",
+    "vibe": "playful, unapologetic, tactile, highly engineered but irrevent",
+    "rationale": "To stand out as a dev in 2026, we avoid standard 'tech dark mode' (navy/blue-50) and generic SaaS grids. Instead, we use Neo-Brutalism: hard shadows, raw typography, and high-contrast vibrant accents against a matte background. It screams 'I know the rules so well I can break them gracefully.'",
+    "default_mode": "dark"
+  },
+  "design_tokens": {
+    "colors": {
+      "dark": {
+        "background": "#0F0F0F",
+        "surface": "#1C1C1C",
+        "surface_hover": "#262626",
+        "primary": "#FF4D00",
+        "primary_foreground": "#000000",
+        "text_main": "#F4F4F0",
+        "text_muted": "#8A8A8A",
+        "border": "#333333",
+        "accent_vibrant": "#CCFF00",
+        "accent_secondary": "#FF6BCC"
+      },
+      "light": {
+        "background": "#F4F4F0",
+        "surface": "#FFFFFF",
+        "surface_hover": "#EAEAEA",
+        "primary": "#FF4D00",
+        "primary_foreground": "#FFFFFF",
+        "text_main": "#0A0A0A",
+        "text_muted": "#666666",
+        "border": "#0A0A0A",
+        "accent_vibrant": "#0000FF",
+        "accent_secondary": "#FF6BCC"
+      }
+    },
+    "typography": {
+      "fonts": {
+        "headings": {
+          "family": "'Cabinet Grotesk', sans-serif",
+          "import_url": "https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900&display=swap",
+          "usage_rules": "Use for all H1-H3. ALWAYS uppercase, ALWAYS tracking-tighter."
+        },
+        "body": {
+          "family": "'JetBrains Mono', monospace",
+          "import_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap",
+          "usage_rules": "Use for all body text, tags, dates, and small labels. Ground the playful headings with serious dev typography."
+        }
+      },
+      "scale": {
+        "h1": "text-6xl sm:text-7xl md:text-8xl lg:text-[8vw] leading-none tracking-tighter uppercase font-black",
+        "h2": "text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight uppercase font-extrabold",
+        "h3": "text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight font-extrabold",
+        "h4": "text-xl sm:text-2xl font-bold font-mono",
+        "body": "text-base sm:text-lg font-mono leading-relaxed",
+        "small": "text-xs sm:text-sm font-mono uppercase tracking-[0.2em]"
+      }
+    },
+    "spacing_and_layout": {
+      "container": "w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24",
+      "section_gap": "py-24 md:py-32 lg:py-48",
+      "radii": {
+        "none": "rounded-none",
+        "pill": "rounded-full"
+      },
+      "borders": "border-2 border-border",
+      "shadows": {
+        "light_mode_hard": "shadow-[6px_6px_0px_0px_rgba(10,10,10,1)]",
+        "dark_mode_hard": "shadow-[6px_6px_0px_0px_rgba(255,77,0,1)]",
+        "hover_pressed": "shadow-[2px_2px_0px_0px_rgba(10,10,10,1)] translate-x-[4px] translate-y-[4px]"
+      }
+    },
+    "motion": {
+      "spring": "type: 'spring', stiffness: 400, damping: 25",
+      "hover": "transition-all duration-200 ease-in-out",
+      "reveal": "framer-motion: initial={opacity:0, y:50}, whileInView={opacity:1, y:0}, viewport={once:true, margin:'-100px'}"
+    }
+  },
+  "sections_spec": {
+    "nav": {
+      "layout": "Floating pill at the BOTTOM center of the viewport (bottom-6). This is an unexpected, playful pattern.",
+      "style": "Glassmorphism: backdrop-blur-xl bg-surface/80 border-2 border-border rounded-full px-6 py-3 flex items-center gap-6 z-50.",
+      "interactions": "Links are monospace text. Hover: text turns primary color and a small dot appears below the link. The Resume button is a solid primary color pill inside the nav.",
+      "test_ids": ["nav-container", "nav-link-experience", "nav-link-skills", "nav-link-projects", "nav-resume-btn"]
+    },
+    "hero": {
+      "layout": "Grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[90vh]. Heavy asymmetry.",
+      "visuals": "Name spans col-span-12, massive Cabinet Grotesk text wrapping naturally. The hero photo is in a raw rectangular div with a hard border and hard shadow (offset bottom-right). Overlap a smaller div containing the 'cat' image/icon.",
+      "interactions": "Make the cat element draggable using Framer Motion `<motion.div drag dragConstraints={{...}}>`. Cursor turns to 'grab'. Text staggers in on load.",
+      "test_ids": ["hero-section", "hero-title", "hero-image", "hero-cat-draggable"]
+    },
+    "experience": {
+      "layout": "Harsh vertical list, full width. No traditional vertical timeline line.",
+      "visuals": "Each role is a massive row with a solid bottom border (border-b-2). Left side: Dates in monospace. Middle: Huge uppercase Role Title. Right: Company Logo in a square hard-border box.",
+      "interactions": "Hovering a row fills its background with `accent_vibrant` (e.g., #CCFF00 in dark mode) and forces all text inside to black. The company logo rotates 5deg.",
+      "test_ids": ["experience-section", "experience-item-0", "experience-company-logo"]
+    },
+    "skills": {
+      "layout": "The 'Tetris' Bento Grid (cols-1 md:cols-8 lg:cols-12). Leave at least one cell entirely empty for breathing room.",
+      "visuals": "Each skill category is a card with a hard border and hard shadow. The category title is an overline label. The skills themselves are displayed as running marquee text inside the card, or a dense brutalist tag cloud.",
+      "interactions": "Hovering a card presses it down (reduces shadow, translates down/right to simulate physical button press).",
+      "test_ids": ["skills-section", "skills-category-mern", "skills-category-python"]
+    },
+    "projects": {
+      "layout": "Vertical stack of overlapping full-width rows, or massive cards.",
+      "visuals": "Left: Large screenshot with a harsh border. Right: Project title in Cabinet Grotesk, tech stack in mono tags. Use a loud, oversized arrow icon for the 'Live Link'.",
+      "interactions": "Hovering the project card reveals a diagonal marquee of the project name across the background.",
+      "test_ids": ["projects-section", "project-card-0", "project-link-live", "project-link-github"]
+    },
+    "education": {
+      "layout": "Two oversized 'concert tickets' or 'receipts' side by side.",
+      "visuals": "Dashed borders (`border-dashed`), barcode SVG graphics at the top or bottom, raw monospace data layout (Key: Value).",
+      "interactions": "Slight float animation up and down (yoyo).",
+      "test_ids": ["education-section", "education-ticket-dojo", "education-ticket-skyline"]
+    },
+    "theme_toggle": {
+      "layout": "Fixed top-right (top-6 right-6).",
+      "visuals": "Chunky, physical-looking square button with hard drop shadow. Icon swaps between a brutalist Sun and Moon.",
+      "interactions": "Clicking presses the button physically (shadow reduces to 0). Optional: the page background color transition uses a circular reveal mask (if feasible), otherwise standard crossfade.",
+      "test_ids": ["theme-toggle-btn"]
+    }
+  },
+  "signature_moments": [
+    "The Floating Bottom Nav: Moves the traditional header to an app-like dock at the bottom.",
+    "Draggable Cat: The user specifically mentioned a cat. Making it a physics-based draggable object is intensely playful.",
+    "Neo-Brutalist Hard Shadows: Replaces soft SaaS shadows with stark 100% opacity offset shadows, making the UI feel like physical stamped metal or cardboard.",
+    "Receipt Education Cards: Recontextualizes boring education data into tactile, physical objects."
+  ],
+  "implementation_instructions": [
+    "DO NOT use Inter, Roboto, or standard sans-serifs. Inject the provided Google Fonts/Fontshare links in index.html or index.css.",
+    "Configure tailwind.config.js to extend colors with CSS variables (e.g., var(--bg-main)) so theme toggling is seamless.",
+    "Add 'dark' class to the HTML tag for dark mode handling.",
+    "Ensure Framer Motion's AnimatePresence is used if any elements are mounted/unmounted, though most are static.",
+    "For shadows, write custom utilities in tailwind.config.js like: `boxShadow: { 'hard': '6px 6px 0px 0px var(--border-color)', 'hard-hover': '2px 2px 0px 0px var(--border-color)' }`.",
+    "No shadcn or Next.js. Build raw HTML + Tailwind elements wrapped in Framer Motion motion.divs."
+  ]
+}
