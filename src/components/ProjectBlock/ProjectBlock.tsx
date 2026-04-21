@@ -63,13 +63,17 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
         />
 
         <div
-          className="relative border-2 border-line shadow-hard bg-surface overflow-hidden group-hover:shadow-hard-hover group-hover:translate-x-[4px] group-hover:translate-y-[4px] transition-all duration-300"
-          style={{ aspectRatio: mainImage.aspect ?? "16/10" }}
+          className={`relative border-2 border-line shadow-hard bg-surface overflow-hidden group-hover:shadow-hard-hover group-hover:translate-x-[4px] group-hover:translate-y-[4px] transition-all duration-300 ${
+            mainImage.fit === "contain"
+              ? "aspect-[4/5] sm:aspect-[16/11] md:aspect-[16/10]"
+              : "aspect-[16/10]"
+          }`}
+          style={mainImage.aspect ? { aspectRatio: mainImage.aspect } : undefined}
         >
           {mainImage.fit === "contain" ? (
             // Phone mockup treatment — bezel + dynamic island + decorative stickers
             <div
-              className={`absolute inset-0 flex items-center justify-center p-6 md:p-10 overflow-hidden ${
+              className={`absolute inset-0 flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-hidden ${
                 index % 3 === 0
                   ? "bg-primary/10"
                   : index % 3 === 1
@@ -80,28 +84,28 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
               {/* Decorative grid backdrop */}
               <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
 
-              {/* Sticker: platform */}
+              {/* Sticker: platform — hidden on very small screens */}
               <span
                 aria-hidden="true"
-                className="absolute top-4 left-4 md:top-6 md:left-6 tag-mono rotate-[-6deg] bg-ink text-bg border-line"
+                className="hidden sm:inline-flex absolute top-3 left-3 md:top-6 md:left-6 tag-mono rotate-[-6deg] bg-ink text-bg border-line whitespace-nowrap"
               >
                 iOS · React Native
               </span>
 
-              {/* Sticker: emphasis */}
+              {/* Sticker: emphasis — hidden on very small screens */}
               <span
                 aria-hidden="true"
-                className="absolute bottom-4 right-4 md:bottom-6 md:right-6 tag-mono rotate-[5deg] bg-primary text-primary-fg border-line"
+                className="hidden sm:inline-flex absolute bottom-3 right-3 md:bottom-6 md:right-6 tag-mono rotate-[5deg] bg-primary text-primary-fg border-line whitespace-nowrap"
               >
                 Mobile · Native
               </span>
 
               {/* The phone */}
               <div className="relative transition-transform duration-500 -rotate-3 group-hover:rotate-0 group-hover:scale-[1.03]">
-                <div className="relative bg-black rounded-[2.2rem] p-2 border-2 border-line shadow-hard-lg">
+                <div className="relative bg-black rounded-[1.8rem] sm:rounded-[2.2rem] p-1.5 sm:p-2 border-2 border-line shadow-hard-lg">
                   <div
-                    className="relative rounded-[1.7rem] overflow-hidden bg-black"
-                    style={{ aspectRatio: "9/19.5", width: "min(44vw, 220px)" }}
+                    className="relative rounded-[1.4rem] sm:rounded-[1.7rem] overflow-hidden bg-black"
+                    style={{ aspectRatio: "9/19.5", width: "min(38vw, 220px)" }}
                   >
                     <img
                       src={mainImage.path}
@@ -115,18 +119,18 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({
                     {/* Dynamic island */}
                     <span
                       aria-hidden="true"
-                      className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full"
+                      className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-12 sm:w-16 h-3 sm:h-4 bg-black rounded-full"
                     />
                   </div>
                 </div>
                 {/* Side buttons */}
                 <span
                   aria-hidden="true"
-                  className="absolute -left-[3px] top-14 w-[3px] h-10 bg-black rounded-l-sm"
+                  className="absolute -left-[3px] top-10 sm:top-14 w-[3px] h-8 sm:h-10 bg-black rounded-l-sm"
                 />
                 <span
                   aria-hidden="true"
-                  className="absolute -right-[3px] top-20 w-[3px] h-14 bg-black rounded-r-sm"
+                  className="absolute -right-[3px] top-16 sm:top-20 w-[3px] h-10 sm:h-14 bg-black rounded-r-sm"
                 />
               </div>
             </div>
