@@ -2,7 +2,7 @@
   "name": "pablo-padilla-portfolio",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://pablopadilla.dev",
+  "homepage": "https://pablopadilla.net",
   "dependencies": {
     "@iconify/react": "^4.1.1",
     "@testing-library/jest-dom": "^6.4.2",
