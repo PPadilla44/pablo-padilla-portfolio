@@ -38,7 +38,9 @@ export const ProjectData: ProjectBlockProps[] = [
       path: "/images/rallier_rsvp.png",
       name: "Rallier event detail — RSVP flow for a confirmed plan",
     },
-    links: [],
+    links: [
+      "https://apps.apple.com/us/app/rallier/id6762495031"
+    ],
     status: "Coming to App Store",
     techs: [
       "mdi:react",
