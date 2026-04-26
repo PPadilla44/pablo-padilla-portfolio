@@ -76,7 +76,6 @@ const Hero = () => {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="mt-8 max-w-xl text-base md:text-lg text-muted leading-relaxed"
             >
-              Committed, enthusiastic, and occasionally caffeinated —{" "}
               <span className="text-ink">I build full-stack web &amp; mobile apps</span>{" "}
               with React, TypeScript, Node, and Python, and ship them to the
               cloud so they stay up at 3am.

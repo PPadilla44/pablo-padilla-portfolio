@@ -5,6 +5,7 @@ import Experience from "./views/Experience";
 import Skills from "./views/Skills";
 import Projects from "./views/Projects";
 import Education from "./views/Education";
+import Contact from "./views/Contact";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Skills />
         <Projects />
         <Education />
+        <Contact />
         <footer
           className="border-t-2 border-line pt-10 pb-36 md:pb-40 text-center font-mono text-xs uppercase tracking-[0.3em] text-muted"
           data-testid="site-footer"
