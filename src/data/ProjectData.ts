@@ -2,6 +2,27 @@ import { ProjectBlockProps } from "../components/ProjectBlock/ProjectBlock";
 
 export const ProjectData: ProjectBlockProps[] = [
   {
+    title: "Proficiency Board",
+    brandAccent: "#F59E0B",
+    mainImage: {
+      path: "/images/rivals_proficiency.png",
+      name: "Proficiency Board showing Marvel Rivals heroes with their rank badges and levels",
+    },
+    links: [
+      "https://rivalsproficiency.com",
+      "https://github.com/PPadilla44/rivals-proficiency",
+    ],
+    techs: [
+      "logos:nextjs-icon",
+      "cib:typescript",
+      "logos:tailwindcss-icon",
+      "logos:postgresql",
+      "simple-icons:anthropic",
+      "logos:vercel-icon",
+    ],
+    description: `A Marvel Rivals proficiency tracker: every hero's rank and level on one board, with a screenshot importer that reads badges from the in-game Heroes tab. An accuracy harness cutting each shot into overlapping full-resolution tiles took the vision model from 20 of 54 heroes correct to 54 of 54 — with guest mode via browser storage, or Discord and Google sign-in to sync across devices.`,
+  },
+  {
     title: "Kindheld",
     brandLogo: "/images/kindheld_icon.png",
     brandAccent: "#D2583E",
